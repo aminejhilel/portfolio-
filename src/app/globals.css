@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #e8f0ff;
+  --accent: #002FA7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+  --font-mono: monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #e8f0ff;
+    --accent: #002FA7;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* ── Scrollbar Klein Blue theme ── */
+
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid rgba(0, 47, 167, 0.15);
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: #002FA7;
+  border-radius: 999px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1a4fc4;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #002FA7 #000000;
+}
+

@@ -28,25 +28,25 @@ const TIMELINE: TimelineItem[] = [
   },
   {
     period: "2022 – 2023",
-    title: "Stage Professionnel · 6 mois",
+    title: "Stage Professionnel · 1 mois",
     subtitle: "FastBenCar — Location de Voiture",
     description:
-      "Stage pratique de 6 mois au sein de FastBenCar, agence de location de voiture. Développement de compétences en gestion client, suivi de flotte et outils numériques de l'entreprise.",
+      "Stage pratique de 1 mois au sein de FastBenCar, agence de location de voiture. Développement de compétences en gestion client, suivi de flotte et outils numériques de l'entreprise.",
     badges: [
       { label: "Stage", kind: "stage" },
-      { label: "6 mois", kind: "stage" },
+      { label: "1 mois", kind: "stage" },
     ],
     side: "right",
   },
   {
     period: "2023 – 2024",
-    title: "Stage Professionnel · 6 mois",
+    title: "Stage Professionnel · 1 mois",
     subtitle: "FastBenCar — Location de Voiture",
     description:
       "Deuxième stage chez FastBenCar, avec des responsabilités élargies. Contribution au développement d'outils internes et optimisation des processus de gestion des réservations.",
     badges: [
       { label: "Stage", kind: "stage" },
-      { label: "6 mois", kind: "stage" },
+      { label: "1 mois", kind: "stage" },
     ],
     side: "left",
   },
@@ -137,9 +137,8 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
   return (
     <div
       ref={ref}
-      className={`relative flex items-start gap-0 ${
-        item.side === "right" ? "flex-row-reverse" : "flex-row"
-      } w-full`}
+      className={`relative flex items-start gap-0 ${item.side === "right" ? "flex-row-reverse" : "flex-row"
+        } w-full`}
     >
       {/* Card */}
       <motion.div
@@ -168,9 +167,8 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
           <motion.div
             className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
             style={{
-              background: `radial-gradient(circle at ${
-                item.side === "left" ? "100%" : "0%"
-              } 0%, ${dotColor}18, transparent 60%)`,
+              background: `radial-gradient(circle at ${item.side === "left" ? "100%" : "0%"
+                } 0%, ${dotColor}18, transparent 60%)`,
             }}
           />
 
@@ -221,11 +219,10 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
 
           {/* Connector arrow */}
           <div
-            className={`absolute top-8 ${
-              item.side === "left"
+            className={`absolute top-8 ${item.side === "left"
                 ? "-right-3 border-l-[12px] border-l-blue-700/20"
                 : "-left-3 border-r-[12px] border-r-blue-700/20"
-            } border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent`}
+              } border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent`}
           />
         </motion.div>
       </motion.div>

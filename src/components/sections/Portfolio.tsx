@@ -40,6 +40,16 @@ const MOCK_PROJECTS = [
     imageUrl: "/projects/grandmasternoir.png",
     category: "Frontend",
     githubLink: "#",
+  },
+  {
+    id: 5,
+    title: "FaceTrack AI",
+    description: "Application de suivi facial en temps réel avec détection d'émotions et visualisation de données.",
+    techStack: ["Next.js", "Python"],
+    imageUrl: "/projects/faceTrack.png",
+    category: "AI / Fullstack",
+    liveLink: "#",
+    githubLink: "#",
   }
 ];
 

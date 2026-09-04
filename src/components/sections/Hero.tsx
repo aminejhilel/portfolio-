@@ -7,8 +7,8 @@ import ShimmerButton from "../ui/ShimmerButton";
 import GradientText from "@/components/GradientText";
 import { useRef, useState, useCallback } from "react";
 
-/* ── Load Particles client-only (WebGL) ── */
-const Particles = dynamic(() => import("@/components/Particles"), {
+/* ── Load AeroShards client-only ── */
+const AeroShards = dynamic(() => import("@/components/AeroShards"), {
   ssr: false,
 });
 
@@ -65,21 +65,25 @@ export default function Hero() {
       style={{ background: "#000000" }}
       onClick={handleClick}
     >
-      {/* ── OGL Particles background ── */}
+      {/* ── AeroShards background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Particles
-          particleCount={1000}
-          particleSpread={10}
-          speed={0.08}
-          particleColors={["#002FA7", "#1a4fc4", "#3a6fd8", "#ffffff", "#5585e0"]}
-          moveParticlesOnHover={true}
-          particleHoverFactor={0.4}
-          alphaParticles={true}
-          particleBaseSize={120}
-          sizeRandomness={1.5}
-          cameraDistance={20}
-          disableRotation={false}
-          pixelRatio={typeof window !== "undefined" ? Math.min(window.devicePixelRatio, 2) : 1}
+        <AeroShards
+          backgroundColor="#000000"
+          shardColor="#002FA7"
+          accentColor="#1a4fc4"
+          placement="full"
+          flow="stream"
+          material="pearl"
+          detail="balanced"
+          effect="none"
+          scale={1}
+          spread={1}
+          depth={1}
+          speed={1}
+          interaction="repel"
+          density={1.5}
+          shardSize={1.1}
+          rippleIntensity={1}
           className="w-full h-full"
         />
       </div>

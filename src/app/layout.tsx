@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Orbitron, Dancing_Script } from "next/font/google";
+import { Space_Mono, Orbitron, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700"],
 });
 
 /* ── Orbitron: futuristic/tech font — parfait pour le thème hacker ── */
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${poppins.variable} ${orbitron.variable} ${dancingScript.variable} h-full antialiased`}
+      className={`${spaceMono.variable} ${orbitron.variable} ${dancingScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

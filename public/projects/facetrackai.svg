@@ -1,0 +1,31 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1323"/>
+      <stop offset="100%" stop-color="#111f42"/>
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2854f0"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="32" fill="url(#bgGrad)"/>
+  <rect x="80" y="80" width="1040" height="515" rx="28" fill="#0f172a" stroke="#2563eb" stroke-width="3"/>
+  <path d="M180 180H1020" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M180 240H1020" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <path d="M180 300H1020" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+  <rect x="180" y="360" width="840" height="230" rx="24" fill="rgba(15,23,42,0.9)"/>
+  <rect x="210" y="400" width="260" height="160" rx="20" fill="url(#panelGrad)" opacity="0.95"/>
+  <circle cx="502" cy="450" r="68" fill="#ffffff" opacity="0.08"/>
+  <path d="M585 428C585 407 568 390 547 390H500C479 390 462 407 462 428V468C462 489 479 506 500 506H547C568 506 585 489 585 468V428Z" fill="#38bdf8" opacity="0.14"/>
+  <path d="M520 380C520 365 508 353 493 353C478 353 466 365 466 380C466 395 478 407 493 407C508 407 520 395 520 380Z" fill="#ffffff"/>
+  <rect x="660" y="410" width="330" height="140" rx="20" fill="#0b1220" stroke="#ffffff" stroke-opacity="0.1"/>
+  <circle cx="730" cy="470" r="42" fill="#facc15" opacity="0.9"/>
+  <circle cx="820" cy="470" r="42" fill="#38bdf8" opacity="0.9"/>
+  <circle cx="910" cy="470" r="42" fill="#22c55e" opacity="0.9"/>
+  <path d="M480 248C525 218 610 214 658 246" stroke="#c7d2fe" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <path d="M450 290C485 260 585 256 630 288" stroke="#a5b4fc" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <text x="600" y="140" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700" text-anchor="middle">JHILEL FaceTrack AI</text>
+  <text x="600" y="190" fill="#93c5fd" font-family="Inter, Arial, sans-serif" font-size="22" text-anchor="middle">Real-time facial detection & emotion analytics</text>
+  <text x="600" y="620" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">Live webcam monitoring & emotion telemetry</text>
+</svg>

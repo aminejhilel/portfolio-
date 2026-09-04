@@ -3,35 +3,57 @@
 import React, { useState } from "react";
 import {
   SiHtml5, SiCss, SiTailwindcss, SiJavascript, SiReact, SiNextdotjs,
-  SiPhp, SiPython, SiLaravel, SiMysql,
+  SiPhp, SiPython, SiLaravel, SiMysql, SiSqlite,
   SiFigma, SiDocker, SiGitlab, SiGithub, SiJira, SiPostman,
-  SiTypescript, SiNodedotjs, SiMongodb, SiGit,
+  SiTypescript, SiNodedotjs, SiMongodb, SiGit, SiC, SiCplusplus
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+import { TbBrandCSharp } from "react-icons/tb";
+import { DiMsqlServer } from "react-icons/di";
 
-// Map tech names to their react-icon components and colors
+const RestApiIcon = () => (
+  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>
+);
+
 const TECH_ICONS: Record<string, { icon: React.ReactNode; color: string }> = {
-  "HTML":           { icon: <SiHtml5 className="w-5 h-5" />,         color: "#E44D26" },
-  "CSS":            { icon: <SiCss className="w-5 h-5" />,          color: "#1572B6" },
-  "Tailwind CSS":   { icon: <SiTailwindcss className="w-5 h-5" />,   color: "#06B6D4" },
-  "JavaScript":     { icon: <SiJavascript className="w-5 h-5" />,    color: "#F7DF1E" },
-  "React.js":       { icon: <SiReact className="w-5 h-5" />,         color: "#61DAFB" },
-  "Next.js":        { icon: <SiNextdotjs className="w-5 h-5" />,     color: "#FFFFFF" },
+  "C":              { icon: <SiC className="w-5 h-5" />,             color: "#A8B9CC" },
+  "C++":            { icon: <SiCplusplus className="w-5 h-5" />,     color: "#00599C" },
+  "C#":             { icon: <TbBrandCSharp className="w-5 h-5" />,   color: "#239120" },
   "PHP":            { icon: <SiPhp className="w-5 h-5" />,           color: "#777BB4" },
   "Python":         { icon: <SiPython className="w-5 h-5" />,        color: "#3776AB" },
+  "JavaScript":     { icon: <SiJavascript className="w-5 h-5" />,    color: "#F7DF1E" },
+  "HTML5":          { icon: <SiHtml5 className="w-5 h-5" />,         color: "#E44D26" },
+  "CSS3":           { icon: <SiCss className="w-5 h-5" />,          color: "#1572B6" },
+  "Tailwind CSS":   { icon: <SiTailwindcss className="w-5 h-5" />,   color: "#06B6D4" },
+  "React.js":       { icon: <SiReact className="w-5 h-5" />,         color: "#61DAFB" },
+  "Next.js":        { icon: <SiNextdotjs className="w-5 h-5" />,     color: "#FFFFFF" },
+  "Node.js":        { icon: <SiNodedotjs className="w-5 h-5" />,     color: "#339933" },
   "Laravel":        { icon: <SiLaravel className="w-5 h-5" />,       color: "#FF2D20" },
   "Filament":       { icon: <SiLaravel className="w-5 h-5" />,       color: "#FF6B35" },
-  "SQL":            { icon: <SiMysql className="w-5 h-5" />,         color: "#4479A1" },
+  "REST API":       { icon: <RestApiIcon />,                         color: "#00FF7F" },
+  "MySQL":          { icon: <SiMysql className="w-5 h-5" />,         color: "#4479A1" },
+  "SQL Server":     { icon: <DiMsqlServer className="w-5 h-5" />, color: "#CC292B" },
+  "SQLite":         { icon: <SiSqlite className="w-5 h-5" />,        color: "#003B57" },
   "Figma":          { icon: <SiFigma className="w-5 h-5" />,         color: "#F24E1E" },
-  "Prototyping":    { icon: <SiFigma className="w-5 h-5" />,         color: "#A259FF" },
+  "Prototypage":    { icon: <SiFigma className="w-5 h-5" />,         color: "#A259FF" },
   "Wireframing":    { icon: <SiFigma className="w-5 h-5" />,         color: "#1ABCFE" },
-  "User Research":  { icon: <SiFigma className="w-5 h-5" />,         color: "#0ACF83" },
-  "Docker":         { icon: <SiDocker className="w-5 h-5" />,        color: "#2496ED" },
-  "GitLab CI/CD":   { icon: <SiGitlab className="w-5 h-5" />,       color: "#FC6D26" },
+  "Recherche Utilisateur":  { icon: <SiFigma className="w-5 h-5" />, color: "#0ACF83" },
   "Git/GitHub":     { icon: <SiGithub className="w-5 h-5" />,        color: "#FFFFFF" },
+  "Docker":         { icon: <SiDocker className="w-5 h-5" />,        color: "#2496ED" },
+  "VS Code":        { icon: <VscVscode className="w-5 h-5" />,        color: "#007ACC" },
+  
+  // Legacy backups
+  "HTML":           { icon: <SiHtml5 className="w-5 h-5" />,         color: "#E44D26" },
+  "CSS":            { icon: <SiCss className="w-5 h-5" />,          color: "#1572B6" },
+  "SQL":            { icon: <SiMysql className="w-5 h-5" />,         color: "#4479A1" },
+  "Prototyping":    { icon: <SiFigma className="w-5 h-5" />,         color: "#A259FF" },
+  "User Research":  { icon: <SiFigma className="w-5 h-5" />,         color: "#0ACF83" },
+  "GitLab CI/CD":   { icon: <SiGitlab className="w-5 h-5" />,       color: "#FC6D26" },
   "Jira":           { icon: <SiJira className="w-5 h-5" />,          color: "#0052CC" },
   "Postman":        { icon: <SiPostman className="w-5 h-5" />,       color: "#FF6C37" },
   "TypeScript":     { icon: <SiTypescript className="w-5 h-5" />,    color: "#3178C6" },
-  "Node.js":        { icon: <SiNodedotjs className="w-5 h-5" />,     color: "#339933" },
   "MongoDB":        { icon: <SiMongodb className="w-5 h-5" />,       color: "#47A248" },
   "Git":            { icon: <SiGit className="w-5 h-5" />,           color: "#F05032" },
 };

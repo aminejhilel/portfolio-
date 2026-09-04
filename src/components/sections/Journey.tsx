@@ -27,11 +27,11 @@ const TIMELINE: TimelineItem[] = [
     side: "left",
   },
   {
-    period: "2022 – 2023",
+    period: "2024 – 2025",
     title: "Stage Professionnel · 1 mois",
     subtitle: "FastBenCar — Location de Voiture",
     description:
-      "Stage pratique de 1 mois au sein de FastBenCar, agence de location de voiture. Développement de compétences en gestion client, suivi de flotte et outils numériques de l'entreprise.",
+      "Stage pratique d'un mois au sein de FastBenCar, agence de location de voiture. Développement de compétences en gestion client, suivi de flotte et outils numériques de l'entreprise.",
     badges: [
       { label: "Stage", kind: "stage" },
       { label: "1 mois", kind: "stage" },
@@ -39,7 +39,7 @@ const TIMELINE: TimelineItem[] = [
     side: "right",
   },
   {
-    period: "2023 – 2024",
+    period: "2025 – 2026",
     title: "Stage Professionnel · 1 mois",
     subtitle: "FastBenCar — Location de Voiture",
     description:
@@ -137,18 +137,21 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
   return (
     <div
       ref={ref}
-      className={`relative flex items-start gap-0 ${item.side === "right" ? "flex-row-reverse" : "flex-row"
-        } w-full`}
+      className={`relative flex items-start w-full justify-end md:justify-start ${
+        item.side === "right" ? "md:flex-row-reverse" : "md:flex-row"
+      }`}
     >
       {/* Card */}
       <motion.div
-        className={`w-[calc(50%-2.5rem)] ${item.side === "right" ? "mr-10" : "ml-10"}`}
+        className={`w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] ${
+          item.side === "right" ? "md:mr-10" : "md:ml-10"
+        }`}
         variants={cardVariants(item.side)}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
         <motion.div
-          className="relative rounded-2xl p-6 group cursor-default"
+          className="relative rounded-2xl p-5 md:p-6 group cursor-default"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(0,47,167,0.08) 100%)",
@@ -219,16 +222,17 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
 
           {/* Connector arrow */}
           <div
-            className={`absolute top-8 ${item.side === "left"
-                ? "-right-3 border-l-[12px] border-l-blue-700/20"
+            className={`absolute top-8 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent ${
+              item.side === "left"
+                ? "-left-3 border-r-[12px] border-r-blue-700/20 md:left-auto md:-right-3 md:border-r-transparent md:border-l-[12px] md:border-l-blue-700/20"
                 : "-left-3 border-r-[12px] border-r-blue-700/20"
-              } border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent`}
+            }`}
           />
         </motion.div>
       </motion.div>
 
       {/* Center dot */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
         <motion.div
           className="relative w-5 h-5 rounded-full border-2 flex items-center justify-center"
           style={{
@@ -308,7 +312,7 @@ export default function Journey() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical center line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px overflow-hidden">
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px overflow-hidden">
             <motion.div
               className="w-full h-full origin-top"
               style={{
@@ -335,7 +339,7 @@ export default function Journey() {
 
           {/* Bottom cap dot */}
           <motion.div
-            className="absolute left-1/2 -translate-x-1/2 bottom-0 w-3 h-3 rounded-full"
+            className="absolute left-6 md:left-1/2 -translate-x-1/2 bottom-0 w-3 h-3 rounded-full"
             style={{
               background: "linear-gradient(135deg, #002FA7, #1a4fc4)",
               boxShadow: "0 0 12px rgba(0,47,167,0.7)",

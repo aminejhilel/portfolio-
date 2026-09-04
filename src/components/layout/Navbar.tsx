@@ -100,19 +100,34 @@ export default function Navbar() {
               )}
             </Link>
           ))}
-          <a
-            href="#contact"
-            className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105"
-            style={{
-              background: "rgba(0,47,167,0.12)",
-              border: "1px solid rgba(0,47,167,0.45)",
-              backdropFilter: "blur(12px)",
-              color: "#ffffff",
-              boxShadow: "0 0 15px rgba(0,47,167,0.25)",
-            }}
-          >
-            Hire Me
-          </a>
+          <div className="flex items-center gap-4 ml-2">
+            <a
+              href="/cv_amine_jhilel.pdf"
+              download="cv_amine_jhilel.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:bg-white/5"
+              style={{
+                color: "#adc0ff",
+                border: "1px solid rgba(173,192,255,0.2)",
+              }}
+            >
+              Télécharger CV
+            </a>
+            <a
+              href="#contact"
+              className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105"
+              style={{
+                background: "rgba(0,47,167,0.12)",
+                border: "1px solid rgba(0,47,167,0.45)",
+                backdropFilter: "blur(12px)",
+                color: "#ffffff",
+                boxShadow: "0 0 15px rgba(0,47,167,0.25)",
+              }}
+            >
+              Hire Me
+            </a>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -151,6 +166,17 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+          <a
+            href="/cv_amine_jhilel.pdf"
+            download="cv_amine_jhilel.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="font-medium py-2 transition-colors mt-2"
+            style={{ color: "#adc0ff" }}
+          >
+            Télécharger CV
+          </a>
         </motion.div>
       )}
     </header>

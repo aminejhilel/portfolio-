@@ -34,7 +34,7 @@ const socialLinks = [
   {
     icon: GithubIcon,
     label: "GitHub",
-    href: "https://github.com/amine-jhilel",
+    href: "https://github.com/aminejhilel",
   },
   {
     icon: LinkedinIcon,

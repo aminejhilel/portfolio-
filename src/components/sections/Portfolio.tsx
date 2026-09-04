@@ -13,6 +13,7 @@ const MOCK_PROJECTS = [
     imageUrl: "/projects/maraguide.jpg",
     category: "Fullstack",
     liveLink: "#",
+    githubLink: "https://github.com/aminejhilel/touriste",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const MOCK_PROJECTS = [
     imageUrl: "/projects/emig.png",
     category: "Frontend",
     liveLink: "#",
+    githubLink: "https://github.com/aminejhilel/gestion_scolarite_filament",
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const MOCK_PROJECTS = [
     imageUrl: "/projects/fastbencar.png",
     category: "Fullstack",
     liveLink: "#",
+    githubLink: "https://github.com/aminejhilel/location_voiture",
   },
   {
     id: 4,
@@ -39,17 +42,16 @@ const MOCK_PROJECTS = [
     techStack: ["Vanilla JS", "HTML", "CSS"],
     imageUrl: "/projects/grandmasternoir.png",
     category: "Frontend",
-    githubLink: "#",
+    githubLink: "https://github.com/aminejhilel/chesss",
   },
   {
     id: 5,
-    title: "FaceTrack AI",
-    description: "Application de suivi facial en temps réel avec détection d'émotions et visualisation de données.",
-    techStack: ["Next.js", "Python"],
-    imageUrl: "/projects/faceTrack.png",
-    category: "AI / Fullstack",
-    liveLink: "#",
-    githubLink: "#",
+    title: "JHILEL FaceTrack AI",
+    description: "Système de détection faciale en temps réel avec analyse émotionnelle multi-classes et overlay webcam.",
+    techStack: ["React", "Python", "TensorFlow.js", "WebRTC", "TailwindCSS"],
+    imageUrl: "/projects/facetrackai.svg",
+    category: "AI",
+    liveLink: "https://euphonious-tartufo-ff373f.netlify.app/",
   }
 ];
 

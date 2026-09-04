@@ -71,33 +71,33 @@ export default function About() {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(0,255,0,0.12)', border: '1px solid rgba(0,255,0,0.25)' }}
+                  style={{ background: 'rgba(0,47,167,0.12)', border: '1px solid rgba(0,47,167,0.25)' }}
                 >
                   <User className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500">Expérience</div>
-                  <div className="font-semibold text-white">3+ Années</div>
+                  <div className="font-semibold text-white">1+ An</div>
                 </div>
               </div>
               {/* Projets badge */}
               <div
                 className="flex items-center gap-3 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(0,255,0,0.07)',
-                  border: '1px solid rgba(0,255,0,0.2)',
+                  background: 'rgba(0,47,167,0.07)',
+                  border: '1px solid rgba(0,47,167,0.22)',
                   backdropFilter: 'blur(10px)',
                 }}
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(0,255,0,0.12)', border: '1px solid rgba(0,255,0,0.25)' }}
+                  style={{ background: 'rgba(0,47,167,0.12)', border: '1px solid rgba(0,47,167,0.25)' }}
                 >
-                  <Zap className="w-5 h-5 text-purple-400" />
+                  <Zap className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500">Projets</div>
-                  <div className="font-semibold text-white">20+ Complétés</div>
+                  <div className="font-semibold text-white">10+ Complétés</div>
                 </div>
               </div>
             </div>
@@ -111,22 +111,22 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl group cursor-default">
+            <div className="relative w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full group cursor-default">
               {/* Animated border glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#002FA7] to-[#000a2e] opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#002FA7] to-[#000a2e] opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
               
               <div 
-                className="absolute inset-[3px] bg-black rounded-3xl overflow-hidden z-10"
+                className="absolute inset-[3px] bg-black rounded-full overflow-hidden z-10"
                 style={{
                   border: '1px solid rgba(0,47,167,0.35)',
                   boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5)'
                 }}
               >
                 <Image
-                  src="/profile.jpg"
+                  src="/amine-profile.jpg"
                   alt="Amine Jhilel"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale hover:grayscale-0"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 400px"
                   priority
                 />

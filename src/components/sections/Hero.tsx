@@ -132,7 +132,7 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-black tracking-wider mb-6 leading-tight uppercase"
+          className="text-3xl sm:text-5xl md:text-7xl font-black tracking-wider mb-6 leading-tight uppercase text-center w-full"
           style={{ fontFamily: "var(--font-orbitron), 'Orbitron', sans-serif" }}
         >
           <GradientText
@@ -148,7 +148,7 @@ export default function Hero() {
         {/* Typewriter */}
         <motion.div
           variants={itemVariants}
-          className="text-xl md:text-2xl mb-10 min-h-[40px] flex justify-center"
+          className="text-base sm:text-xl md:text-2xl mb-10 min-h-[40px] flex justify-center text-center w-full"
           style={{ color: "#adc0ff" }}
         >
           <TypewriterText

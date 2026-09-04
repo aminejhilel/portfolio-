@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Code } from "lucide-react";
-import Image from "next/image";
 
 interface ProjectProps {
   title: string;
@@ -54,14 +53,12 @@ export default function ProjectCard({
 
       {/* Image */}
       <div className="relative h-48 w-full overflow-hidden rounded-xl mb-5 bg-slate-800/50 shrink-0">
-        <Image
+        <img
           src={imageUrl}
           alt={title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-75 group-hover:opacity-100"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/50 to-transparent" />
       </div>
 
       {/* Text */}

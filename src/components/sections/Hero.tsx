@@ -7,8 +7,11 @@ import ShimmerButton from "../ui/ShimmerButton";
 import GradientText from "@/components/GradientText";
 import { useRef, useState, useCallback } from "react";
 
-/* ── Load AeroShards client-only ── */
-const AeroShards = dynamic(() => import("@/components/AeroShards"), {
+/* ── Load GhostFibers & DepthText client-only ── */
+const GhostFibers = dynamic(() => import("@/components/GhostFibers"), {
+  ssr: false,
+});
+const DepthText = dynamic(() => import("@/components/DepthText"), {
   ssr: false,
 });
 
@@ -65,25 +68,11 @@ export default function Hero() {
       style={{ background: "#000000" }}
       onClick={handleClick}
     >
-      {/* ── AeroShards background ── */}
+      {/* ── GhostFibers background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <AeroShards
-          backgroundColor="#000000"
-          shardColor="#002FA7"
-          accentColor="#1a4fc4"
-          placement="full"
-          flow="stream"
-          material="pearl"
-          detail="balanced"
-          effect="none"
-          scale={1}
-          spread={1}
-          depth={1}
-          speed={1}
-          interaction="repel"
-          density={1.5}
-          shardSize={1.1}
-          rippleIntensity={1}
+        <GhostFibers
+          lineColor="#002FA7"
+          glowColor="#3437A0"
           className="w-full h-full"
         />
       </div>
@@ -136,17 +125,21 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-3xl sm:text-5xl md:text-7xl font-black tracking-wider mb-6 leading-tight uppercase text-center w-full"
+          className="mb-6 leading-tight uppercase text-center w-full flex justify-center"
           style={{ fontFamily: "var(--font-orbitron), 'Orbitron', sans-serif" }}
         >
-          <GradientText
-            colors={["#002FA7", "#ffffff", "#adc0ff", "#002FA7", "#7ba0ee"]}
-            animationSpeed={4}
-            showBorder={false}
-            className="pb-2"
-          >
-            Bonjour, je suis Amine Jhilel
-          </GradientText>
+          <DepthText
+            text="Bonjour, je suis Amine Jhilel"
+            faceColor="#ffffff"
+            depthColor="#002FA7"
+            fontSize="clamp(2.2rem, 5.5vw, 4.8rem)"
+            fontWeight={900}
+            layers={34}
+            depth={2.2}
+            tilt={7.5}
+            autoOrbit={true}
+            pointerTracking={true}
+          />
         </motion.h1>
 
         {/* Typewriter */}

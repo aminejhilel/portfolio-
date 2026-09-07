@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
-import CursorGrid from "../CursorGrid";
 
 const GithubIcon = ({ className = "w-7 h-7" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -56,18 +55,6 @@ export default function Contact() {
         <div className="absolute top-[-5%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-blue-700/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[0%] left-[30%] w-[300px] h-[300px] bg-blue-600/8 rounded-full blur-[100px]" />
       </div>
-
-      {/* Interactive Cursor Grid Background */}
-      <CursorGrid
-        color="#002FA7"
-        cellSize={60}
-        radius={180}
-        falloff="smooth"
-        lineWidth={1}
-        maxOpacity={0.8}
-        gridOpacity={0.03}
-        className="opacity-50 md:opacity-100"
-      />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
         {/* Section label */}

@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useEffect } from 'react';
 import './CursorGrid.css';
 
@@ -300,14 +302,14 @@ const CursorGrid = ({
     rebuild();
     wake();
 
-    container.addEventListener('pointermove', onPointerMove);
-    container.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerdown', onPointerDown);
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
-      container.removeEventListener('pointermove', onPointerMove);
-      container.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerdown', onPointerDown);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellSize]);

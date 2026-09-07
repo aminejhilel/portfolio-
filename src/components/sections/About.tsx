@@ -103,34 +103,76 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Profile Photo */}
+          {/* Profile Photo with Futuristic Animated Frame */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="flex justify-center lg:justify-end mt-4 lg:mt-0"
           >
-            <div className="relative w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full group cursor-default">
-              {/* Animated border glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#002FA7] to-[#000a2e] opacity-30 blur-2xl group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
-              
-              <div 
-                className="absolute inset-[3px] bg-black rounded-full overflow-hidden z-10"
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 flex items-center justify-center group cursor-pointer">
+              {/* 1. Ambient Background Neon Glow */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-cyan-400 opacity-25 blur-3xl group-hover:opacity-50 transition-opacity duration-700 pointer-events-none" />
+
+              {/* 2. Outer Pulsing Radar Aura */}
+              <motion.div
+                className="absolute inset-[-14px] rounded-full border border-blue-500/20 pointer-events-none"
+                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.7, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* 3. Rotating Tech Orbit Ring with Conic Gradient */}
+              <motion.div
+                className="absolute inset-[-6px] rounded-full p-[2px] overflow-hidden pointer-events-none"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                 style={{
-                  border: '1px solid rgba(0,47,167,0.35)',
-                  boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5)'
+                  background:
+                    "conic-gradient(from 0deg, #3b82f6, #6366f1, #06b6d4, transparent 65%, #3b82f6)",
+                  boxShadow: "0 0 25px rgba(59, 130, 246, 0.45)",
+                }}
+              />
+
+              {/* 4. Glassmorphism Metallic Border Ring */}
+              <div
+                className="relative w-full h-full rounded-full p-2.5 backdrop-blur-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                style={{
+                  background:
+                    "linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 47, 167, 0.18) 100%)",
+                  border: "1px solid rgba(255, 255, 255, 0.18)",
+                  boxShadow:
+                    "0 20px 50px rgba(0, 0, 0, 0.75), inset 0 0 18px rgba(59, 130, 246, 0.25)",
                 }}
               >
-                <Image
-                  src="/amine-profile.jpg"
-                  alt="Amine Jhilel"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  priority
-                />
+                {/* 5. Inner Image Container */}
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-950 border border-blue-500/30">
+                  <Image
+                    src="/amine-profile.jpg"
+                    alt="Amine Jhilel"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                  />
+                  {/* Subtle Dark Vignette & Specular Highlight */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-white/10 pointer-events-none" />
+                </div>
               </div>
+
+              {/* 6. Floating Status Pill Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute -bottom-3 bg-slate-900/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-blue-500/40 text-[11px] font-bold text-white flex items-center gap-2 shadow-xl shadow-blue-950/60 z-20 group-hover:border-cyan-400/60 transition-colors"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="tracking-wide">Développeur Full-Stack</span>
+              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -31,6 +31,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 <img width="1917" height="907" alt="image" src="https://github.com/user-attachments/assets/beb93a85-9c89-4d85-a01f-aac6c4935c0d" />
 
+<img width="1237" height="827" alt="image" src="https://github.com/user-attachments/assets/e0e4403f-19b0-4234-a7b1-20d2402a66da" />
+
+
 
 ## Deploy on Vercel
 

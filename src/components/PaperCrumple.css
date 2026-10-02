@@ -1,0 +1,40 @@
+.paper-crumple {
+  position: relative;
+  overflow: visible;
+  user-select: none;
+  touch-action: none;
+}
+.paper-crumple-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+}
+.paper-crumple-fallback {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.paper-crumple-hit {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+  cursor: grab;
+}
+.paper-crumple-hit:active {
+  cursor: grabbing;
+}
+.paper-crumple-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

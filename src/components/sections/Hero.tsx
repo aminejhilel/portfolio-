@@ -7,11 +7,17 @@ import ShimmerButton from "../ui/ShimmerButton";
 import GradientText from "@/components/GradientText";
 import { useRef, useState, useCallback } from "react";
 
-/* ── Load GhostFibers & DepthText client-only ── */
+/* ── Load Backgrounds & Text client-only ── */
 const GhostFibers = dynamic(() => import("@/components/GhostFibers"), {
   ssr: false,
 });
+const ShapeWaves = dynamic(() => import("@/components/ShapeWaves"), {
+  ssr: false,
+});
 const DepthText = dynamic(() => import("@/components/DepthText"), {
+  ssr: false,
+});
+const TechText = dynamic(() => import("@/components/TechText"), {
   ssr: false,
 });
 
@@ -68,11 +74,12 @@ export default function Hero() {
       style={{ background: "#000000" }}
       onClick={handleClick}
     >
-      {/* ── GhostFibers background ── */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <GhostFibers
-          lineColor="#002FA7"
-          glowColor="#3437A0"
+      {/* ── ShapeWaves background ── */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <ShapeWaves
+          color="#002FA7"
+          hoverColor="#ffffff"
+          backgroundColor="#000000"
           className="w-full h-full"
         />
       </div>
@@ -125,20 +132,14 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           variants={itemVariants}
-          className="mb-6 leading-tight uppercase text-center w-full flex justify-center"
-          style={{ fontFamily: "var(--font-orbitron), 'Orbitron', sans-serif" }}
+          className="mb-6 w-full flex justify-center pointer-events-auto"
         >
-          <DepthText
-            text="Bonjour, je suis Amine Jhilel"
-            faceColor="#ffffff"
-            depthColor="#002FA7"
-            fontSize="clamp(2.2rem, 5.5vw, 4.8rem)"
-            fontWeight={900}
-            layers={34}
-            depth={2.2}
-            tilt={7.5}
-            autoOrbit={true}
-            pointerTracking={true}
+          <TechText
+            text="BONJOUR, JE SUIS AMINE JHILEL"
+            fontSize={120}
+            color="#ffffff"
+            accentColor="#002FA7"
+            className="w-full h-32 sm:h-48 md:h-64 font-bold"
           />
         </motion.h1>
 

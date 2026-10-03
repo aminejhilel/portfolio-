@@ -1,6 +1,6 @@
 **************************************
 # Amine Jhilel - Portfolio Personnel
-
+**************************************
 Bienvenue sur le code source de mon portfolio personnel ! 🚀
 Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack & Designer UI/UX**. Il est conçu avec un design moderne, immersif et hautement interactif, intégrant des animations avancées et des effets visuels 3D/WebGL.
 

@@ -1,16 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Palette, Zap } from "lucide-react";
+import { User, Zap } from "lucide-react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const PaperCrumple = dynamic(() => import("@/components/PaperCrumple"), {
-  ssr: false,
-});
+import FlipCard from "@/components/FlipCard";
 
 export default function About() {
-
 
   return (
     <section id="about" className="py-24 text-white relative overflow-hidden" style={{ background: '#000000' }}>
@@ -108,37 +103,53 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Profile Photo with Paper Crumple Effect */}
+          {/* Profile Photo with FlipCard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center lg:justify-end mt-4 lg:mt-0 relative"
+            className="flex justify-center lg:justify-end mt-4 lg:mt-0 relative group"
           >
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 flex flex-col items-center justify-center group cursor-pointer z-10">
-              <PaperCrumple
-                src="/amine-profile.jpg"
-                alt="Amine Jhilel"
-                width={320}
-                height={320}
-                sceneHeight={400}
-                className="w-full h-full rounded-full overflow-hidden drop-shadow-[0_20px_50px_rgba(0,47,167,0.3)] border-2 border-blue-500/20"
+            <div className="relative w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[420px] z-10">
+              <FlipCard
+                width="100%"
+                height="100%"
+                radius={18}
+                background="#0a0f1e"
+                front={
+                  <div className="relative w-full h-full overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/amine-profile.jpg"
+                      alt="Amine Jhilel"
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'top center',
+                      }}
+                    />
+                  </div>
+                }
+                back={
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-slate-900/90 border-2 border-blue-500/40 backdrop-blur-md p-6 text-center">
+                    <h4 className="text-xl md:text-2xl font-bold text-white mb-3">Travaillons Ensemble!</h4>
+                    <p className="text-sm text-blue-200 mb-6">Je suis toujours ouvert à de nouveaux projets et collaborations.</p>
+                    
+                    {/* Status Pill Badge */}
+                    <div className="bg-slate-900/95 backdrop-blur-xl px-5 py-2.5 rounded-full border border-blue-500/40 text-[13px] font-bold text-white flex items-center gap-2.5 shadow-xl shadow-blue-900/30">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                      </span>
+                      <span className="tracking-wide">Développeur Full-Stack</span>
+                    </div>
+                  </div>
+                }
               />
-              
-              {/* Floating Status Pill Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="absolute -bottom-2 bg-slate-900/95 backdrop-blur-xl px-5 py-2.5 rounded-full border border-blue-500/40 text-[13px] font-bold text-white flex items-center gap-2.5 shadow-2xl shadow-blue-900/50 z-20 group-hover:border-cyan-400/60 transition-colors"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                </span>
-                <span className="tracking-wide">Développeur Full-Stack</span>
-              </motion.div>
             </div>
             
             {/* Ambient Background Neon Glow */}

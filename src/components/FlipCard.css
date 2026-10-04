@@ -1,0 +1,59 @@
+.flip-card {
+  position: relative;
+  width: var(--fc-w);
+  height: var(--fc-h);
+  border-radius: var(--fc-radius);
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.flip-card__rotor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.flip-card__face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--fc-radius);
+  overflow: hidden;
+}
+
+.flip-card__face--back {
+  transform: rotateY(180deg);
+}
+
+.flip-card[data-axis='x'] .flip-card__face--back {
+  transform: rotateX(180deg);
+}
+
+.flip-card__shadow {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: var(--fc-shadow);
+  opacity: var(--fc-shadow-o);
+  filter: blur(20px);
+  border-radius: var(--fc-radius);
+  z-index: -1;
+}
+
+.flip-card__glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--fc-gx) var(--fc-gy), rgba(255,255,255,var(--fc-glare)) 0%, transparent 60%);
+  opacity: var(--fc-sheen);
+  pointer-events: none;
+}

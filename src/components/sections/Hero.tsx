@@ -11,13 +11,10 @@ import { useRef, useState, useCallback } from "react";
 const GhostFibers = dynamic(() => import("@/components/GhostFibers"), {
   ssr: false,
 });
-const ShapeWaves = dynamic(() => import("@/components/ShapeWaves"), {
+const PatternWaves = dynamic(() => import("@/components/PatternWaves"), {
   ssr: false,
 });
-const DepthText = dynamic(() => import("@/components/DepthText"), {
-  ssr: false,
-});
-const TechText = dynamic(() => import("@/components/TechText"), {
+const StrokeText = dynamic(() => import("@/components/StrokeText"), {
   ssr: false,
 });
 
@@ -74,11 +71,11 @@ export default function Hero() {
       style={{ background: "#000000" }}
       onClick={handleClick}
     >
-      {/* ── ShapeWaves background ── */}
+      {/* ── PatternWaves background ── */}
       <div className="absolute inset-0 z-0 pointer-events-auto">
-        <ShapeWaves
+        <PatternWaves
+          preset="silk"
           color="#002FA7"
-          hoverColor="#ffffff"
           backgroundColor="#000000"
           className="w-full h-full"
         />
@@ -134,13 +131,23 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-6 w-full flex justify-center pointer-events-auto"
         >
-          <TechText
-            text="BONJOUR, JE SUIS AMINE JHILEL"
-            fontSize={120}
-            color="#ffffff"
-            accentColor="#002FA7"
-            className="w-full h-32 sm:h-48 md:h-64 font-bold"
-          />
+          <div className="w-full h-20 sm:h-28 md:h-36 lg:h-40">
+            <StrokeText
+              text="BONJOUR, JE SUIS AMINE JHILEL"
+              strokeColor="#002FA7"
+              fillColor="#ffffff"
+              strokeWidth={1.2}
+              fontSize={72}
+              fontWeight={800}
+              letterSpacing={-2}
+              drawDuration={2}
+              fillDelay={0.3}
+              stagger={0.04}
+              trigger="loop"
+              fillMode="wipe"
+              className="w-full h-full"
+            />
+          </div>
         </motion.h1>
 
         {/* Typewriter */}

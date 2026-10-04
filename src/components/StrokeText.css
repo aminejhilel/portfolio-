@@ -1,0 +1,22 @@
+.stroke-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+.stroke-text__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.stroke-text__stroke tspan {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+.stroke-text--hover {
+  cursor: pointer;
+}

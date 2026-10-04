@@ -55,7 +55,9 @@ Pour lancer ce projet localement sur votre machine :
 4. **Ouvrir le projet**
    Rendez-vous sur [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le portfolio en action.
 
+***************
 ## 🤝 Contact
+***************
 
 Si vous souhaitez discuter, collaborer sur un projet, ou voir plus de mon travail, n'hésitez pas à me contacter ou à parcourir le site !
 - [Mon profil GitHub](https://github.com/aminejhilel)

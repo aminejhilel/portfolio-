@@ -12,6 +12,8 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 *****************************************************************************************************************************
 <img width="1237" height="827" alt="image" src="https://github.com/user-attachments/assets/e0e4403f-19b0-4234-a7b1-20d2402a66da" />
 ****************************************************************************************************************************
+<img width="1472" height="766" alt="image" src="https://github.com/user-attachments/assets/ed4e38d9-7109-4988-8439-8e02642246c9" />
+
 
 ## ✨ Fonctionnalités clés
 

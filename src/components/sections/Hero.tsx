@@ -1,183 +1,85 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import dynamic from "next/dynamic";
-import TypewriterText from "@/components/TypewriterText";
+import { motion } from "framer-motion";
+import HeroCarousel from "../HeroCarousel";
 import ShimmerButton from "../ui/ShimmerButton";
-import GradientText from "@/components/GradientText";
-import { useRef, useState, useCallback } from "react";
-
-/* ── Load Backgrounds & Text client-only ── */
-const GhostFibers = dynamic(() => import("@/components/GhostFibers"), {
-  ssr: false,
-});
-const PatternWaves = dynamic(() => import("@/components/PatternWaves"), {
-  ssr: false,
-});
-const StrokeText = dynamic(() => import("@/components/StrokeText"), {
-  ssr: false,
-});
-
-/* ─── Framer Motion variants ─── */
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.18, delayChildren: 0.4 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-};
-
-/* ─── Click burst ─── */
-interface Burst {
-  id: number;
-  x: number;
-  y: number;
-  particles: { angle: number; dist: number; color: string }[];
-}
-const BURST_COLORS = ["#002FA7", "#1a4fc4", "#3a6fd8", "#ffffff", "#5585e0", "#adc0ff"];
+import { useState, useEffect } from "react";
 
 export default function Hero() {
-  const [bursts, setBursts] = useState<Burst[]>([]);
-  const burstId = useRef(0);
-
-  const handleClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    const id = burstId.current++;
-    const x = e.clientX;
-    const y = e.clientY;
-    const particles = Array.from({ length: 18 }, (_, i) => ({
-      angle: (i / 18) * Math.PI * 2,
-      dist: 60 + Math.random() * 60,
-      color: BURST_COLORS[Math.floor(Math.random() * BURST_COLORS.length)],
-    }));
-    setBursts((prev) => [...prev, { id, x, y, particles }]);
-    setTimeout(() => setBursts((prev) => prev.filter((b) => b.id !== id)), 900);
-  }, []);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <section
       id="hero"
-      className="relative h-screen flex flex-col items-center justify-center overflow-hidden text-white"
+      className="relative h-[95vh] w-full flex flex-col items-center justify-between overflow-hidden text-white pt-24 pb-8"
       style={{ background: "#000000" }}
-      onClick={handleClick}
+      onMouseMove={(e) => {
+        // Get mouse position relative to the section
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-      {/* ── PatternWaves background ── */}
-      <div className="absolute inset-0 z-0 pointer-events-auto">
-        <PatternWaves
-          preset="silk"
-          color="#002FA7"
-          backgroundColor="#000000"
-          className="w-full h-full"
-        />
+      {/* Base Subtle Dot Grid Background */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none opacity-[0.15]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Interactive Glowing Dot Grid (Masked by Mouse Position) */}
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none"
+        animate={{ opacity: isHovering ? 0.8 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          backgroundImage: 'radial-gradient(circle, #ffffff 1.5px, transparent 1.5px)',
+          backgroundSize: '40px 40px',
+          maskImage: `radial-gradient(circle 300px at ${mousePos.x}px ${mousePos.y}px, black, transparent)`,
+          WebkitMaskImage: `radial-gradient(circle 300px at ${mousePos.x}px ${mousePos.y}px, black, transparent)`,
+        }}
+      />
+
+      {/* Top Text Section */}
+      <motion.div
+        className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto mt-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-[1.1] tracking-tight mb-2 font-serif" style={{ textShadow: "0 4px 24px rgba(255,255,255,0.15)" }}>
+          L'idée dans votre tête,<br />
+          développée avant midi.
+        </h1>
+      </motion.div>
+
+      {/* The 3D Carousel */}
+      <div className="w-full relative z-10 flex-1 flex items-center justify-center min-h-0 my-2">
+        <HeroCarousel />
       </div>
 
-      {/* Ambient blobs */}
+      {/* Bottom Text Section */}
       <motion.div
-        className="absolute top-[10%] left-[15%] w-72 h-72 rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none"
-        style={{ background: "#002FA7" }}
-        animate={{ x: [0, 50, -20, 0], y: [0, -30, 40, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-[15%] right-[10%] w-96 h-96 rounded-full mix-blend-screen filter blur-[140px] opacity-10 pointer-events-none"
-        style={{ background: "#1a4fc4" }}
-        animate={{ x: [0, -40, 18, 0], y: [0, 50, -25, 0] }}
-        transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Click burst particles */}
-      {bursts.map((burst) =>
-        burst.particles.map((p, i) => (
-          <motion.div
-            key={`${burst.id}-${i}`}
-            className="fixed w-2 h-2 rounded-full pointer-events-none z-50"
-            style={{
-              left: burst.x,
-              top: burst.y,
-              backgroundColor: p.color,
-              boxShadow: `0 0 8px ${p.color}, 0 0 16px ${p.color}55`,
-            }}
-            initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-            animate={{
-              x: Math.cos(p.angle) * p.dist,
-              y: Math.sin(p.angle) * p.dist,
-              opacity: 0,
-              scale: 0,
-            }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          />
-        ))
-      )}
-
-      {/* ── Content ── */}
-      <motion.div
-        className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto pointer-events-none"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 max-w-3xl mx-auto mb-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        {/* Heading */}
-        <motion.h1
-          variants={itemVariants}
-          className="mb-6 w-full flex justify-center pointer-events-auto"
-        >
-          <div className="w-full h-20 sm:h-28 md:h-36 lg:h-40">
-            <StrokeText
-              text="BONJOUR, JE SUIS AMINE JHILEL"
-              strokeColor="#002FA7"
-              fillColor="#ffffff"
-              strokeWidth={1.2}
-              fontSize={72}
-              fontWeight={800}
-              letterSpacing={-2}
-              drawDuration={2}
-              fillDelay={0.3}
-              stagger={0.04}
-              trigger="loop"
-              fillMode="wipe"
-              className="w-full h-full"
-            />
-          </div>
-        </motion.h1>
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+          <span className="text-white font-semibold">Développement web & Design.</span> Décrivez votre vision,
+          orientez-la avec vos règles, et obtenez un produit final performant, 
+          adapté à tous vos besoins.
+        </p>
 
-        {/* Typewriter */}
-        <motion.div
-          variants={itemVariants}
-          className="text-base sm:text-xl md:text-2xl mb-10 min-h-[40px] flex justify-center text-center w-full"
-          style={{ color: "#adc0ff" }}
-        >
-          <TypewriterText
-            phrases={[
-              "Full-Stack Developer",
-              "UI & UX Designer",
-              "Specializing in performant web apps",
-            ]}
-          />
-        </motion.div>
-
-        {/* CTA buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-6 pointer-events-auto mt-4"
-        >
+        <div className="flex flex-col sm:flex-row gap-4">
           <ShimmerButton href="#projects" isPrimary={true}>
-            Explore My Work
+            Découvrir mes projets
           </ShimmerButton>
-
-          <ShimmerButton href="#contact" isPrimary={false}>
-            Get In Touch
-          </ShimmerButton>
-        </motion.div>
+        </div>
       </motion.div>
 
     </section>

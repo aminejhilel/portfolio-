@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import ProjectCard from "../cards/ProjectCard";
-import InfiniteLoop from "../InfiniteLoop";
+
+const InfiniteLoop = dynamic(() => import("../InfiniteLoop"), {
+  ssr: false,
+});
 
 const MOCK_PROJECTS = [
   {

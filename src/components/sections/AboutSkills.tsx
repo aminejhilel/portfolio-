@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import StackCards from "@/components/StackCards";
+import dynamic from "next/dynamic";
+
+const StackCards = dynamic(() => import("@/components/StackCards"), {
+  ssr: false,
+});
 
 export default function AboutSkills() {
   return (

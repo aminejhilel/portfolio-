@@ -5,7 +5,9 @@ import Journey from "@/components/sections/Journey";
 import Portfolio from "@/components/sections/Portfolio";
 import Contact from "@/components/sections/Contact";
 import Navbar from "@/components/layout/Navbar";
-import CursorGrid from "@/components/CursorGrid";
+import dynamic from "next/dynamic";
+
+const CursorGrid = dynamic(() => import("@/components/CursorGrid"));
 
 export default function Home() {
   return (

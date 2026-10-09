@@ -1,13 +1,13 @@
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import AboutSkills from "@/components/sections/AboutSkills";
-import Journey from "@/components/sections/Journey";
-import Portfolio from "@/components/sections/Portfolio";
-import Contact from "@/components/sections/Contact";
 import Navbar from "@/components/layout/Navbar";
 import dynamic from "next/dynamic";
 
-const CursorGrid = dynamic(() => import("@/components/CursorGrid"));
+// Lazy-load heavy sections — only load when needed
+const About       = dynamic(() => import("@/components/sections/About"));
+const AboutSkills = dynamic(() => import("@/components/sections/AboutSkills"));
+const Journey     = dynamic(() => import("@/components/sections/Journey"));
+const Portfolio   = dynamic(() => import("@/components/sections/Portfolio"));
+const Contact     = dynamic(() => import("@/components/sections/Contact"));
 
 export default function Home() {
   return (
@@ -15,26 +15,12 @@ export default function Home() {
       <Navbar />
       <Hero />
 
-      {/* Interactive Cursor Grid background covering all sections below Hero */}
-      <div className="relative w-full overflow-hidden">
-        <CursorGrid
-          color="#002FA7"
-          cellSize={60}
-          radius={180}
-          falloff="smooth"
-          lineWidth={1}
-          maxOpacity={0.8}
-          gridOpacity={0.03}
-          className="opacity-60 md:opacity-100"
-        />
-
-        <div className="relative z-10">
-          <About />
-          <AboutSkills />
-          <Journey />
-          <Portfolio />
-          <Contact />
-        </div>
+      <div className="relative w-full">
+        <About />
+        <AboutSkills />
+        <Journey />
+        <Portfolio />
+        <Contact />
       </div>
 
       {/* Footer */}

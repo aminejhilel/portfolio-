@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Mono, Orbitron, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import DotGridBackground from "@/components/DotGridBackground";
 
 const spaceMono = Space_Mono({
   variable: "--font-space-mono",
@@ -38,7 +39,9 @@ export default function RootLayout({
       lang="fr"
       className={`${spaceMono.variable} ${orbitron.variable} ${dancingScript.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <DotGridBackground>{children}</DotGridBackground>
+      </body>
     </html>
   );
 }

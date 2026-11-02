@@ -8,7 +8,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 ## 📸 Aperçu
 ************************
 
-<img width="1917" height="902" alt="image" src="https://github.com/user-attachments/assets/e5d98fae-7ab7-4ce0-9545-020ce6a4e3d7" />
+<img width="1917" height="891" alt="image" src="https://github.com/user-attachments/assets/4ec7c423-ea28-492d-9321-91d615722b26" />
 *****************************************************************************************************************************
 <img width="1237" height="827" alt="image" src="https://github.com/user-attachments/assets/e0e4403f-19b0-4234-a7b1-20d2402a66da" />
 ****************************************************************************************************************************

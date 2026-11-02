@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import ShimmerButton from "../ui/ShimmerButton";
+import { GraduationCap } from "lucide-react";
 
 const AeroShards = dynamic(() => import("../AeroShards"), { ssr: false });
 const DepthText = dynamic(() => import("../DepthText"), { ssr: false });
@@ -53,22 +54,35 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Badge */}
+        {/* Badges */}
         <motion.div
+          className="flex flex-wrap items-center justify-center gap-2.5"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
             style={{
-              background: "rgba(0,47,167,0.1)",
-              border: "1px solid rgba(0,47,167,0.35)",
+              background: "rgba(0,47,167,0.12)",
+              border: "1px solid rgba(0,47,167,0.4)",
               color: "#7eb3ff",
             }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
             Disponible pour de nouveaux projets
+          </span>
+
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
+            style={{
+              background: "rgba(59,130,246,0.12)",
+              border: "1px solid rgba(59,130,246,0.35)",
+              color: "#93c5fd",
+            }}
+          >
+            <GraduationCap className="w-3.5 h-3.5 text-sky-400" />
+            Aujourd&apos;hui étudiant en Licence à SupMTI
           </span>
         </motion.div>
 
@@ -120,15 +134,13 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          className="text-sm sm:text-base md:text-lg leading-relaxed max-w-xl"
-          style={{ color: "#64748b" }}
+          className="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl text-slate-400"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
         >
           <span className="text-white font-semibold">Développement web &amp; Design.</span>{" "}
-          Décrivez votre vision, orientez-la avec vos règles, et obtenez un produit final performant,{" "}
-          adapté à tous vos besoins.
+          Aujourd&apos;hui étudiant en <span className="text-sky-300 font-medium">Licence à SupMTI</span>, je conçois des solutions numériques modernes, performantes et adaptées à tous vos besoins.
         </motion.p>
 
         {/* CTA */}

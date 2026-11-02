@@ -87,8 +87,13 @@ export default function Hero() {
             width={true}
             weight={true}
             italic={true}
-            textColor="#82b1ff"
+            idle="wave"
+            idleSpeed={1.1}
+            clickRipple={true}
+            textColor="#4a80d4"
             pressureColor="#ffffff"
+            radius={0.6}
+            smoothing={0.55}
             minFontSize={36}
           />
         </motion.div>

@@ -54,25 +54,12 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Badges */}
+        {/* Badge */}
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-2.5"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <span
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase"
-            style={{
-              background: "rgba(0,47,167,0.12)",
-              border: "1px solid rgba(0,47,167,0.4)",
-              color: "#7eb3ff",
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-            Disponible pour de nouveaux projets
-          </span>
-
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
             style={{

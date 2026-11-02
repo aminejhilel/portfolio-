@@ -1,0 +1,76 @@
+.holo-card {
+  display: inline-block;
+  position: relative;
+  width: var(--hc-w, 320px);
+  aspect-ratio: var(--hc-ratio, 0.71590909);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.holo-card[role="img"] {
+  cursor: default;
+}
+
+.holo-card__shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--hc-radius, 14px);
+  box-shadow: 0 28px 56px -8px rgba(0, 0, 0, 0.72), 0 8px 20px -4px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.holo-card__rotor {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: var(--hc-radius, 14px);
+}
+
+.holo-card__face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--hc-radius, 14px);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.holo-card__face--front {
+  z-index: 1;
+}
+
+.holo-card__face--back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.holo-card__face img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  border-radius: var(--hc-radius, 14px);
+}
+
+.holo-card__face canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  border-radius: var(--hc-radius, 14px);
+}
+
+/* Focus ring */
+.holo-card:focus-visible .holo-card__rotor {
+  box-shadow: 0 0 0 3px rgba(120, 170, 255, 0.7);
+}

@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { User, Zap } from "lucide-react";
-import HoloCard from "@/components/HoloCard";
+import dynamic from "next/dynamic";
+
+const Lanyard = dynamic(() => import("@/components/Lanyard"), { ssr: false });
 
 export default function About() {
 
@@ -102,33 +104,34 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Profile Photo with HoloCard */}
+          {/* Profile Photo with Lanyard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center lg:justify-end mt-4 lg:mt-0 relative group"
+            className="flex justify-center lg:justify-end mt-4 lg:mt-0 relative"
+            style={{ height: '520px', width: '100%', maxWidth: '360px', marginLeft: 'auto' }}
           >
-            <HoloCard
-              image="/amine-profile.jpg"
-              alt="Amine Jhilel"
-              preset="cosmos"
-              intensity={0.9}
-              edgeSparkle={1.0}
-              glare={0.6}
-              foilColor="#7eb3ff"
-              frame={5}
-              width={300}
-              radius={18}
-              tiltMax={16}
-              hoverScale={1.05}
-              idle={true}
-              shadow={true}
+            <Lanyard
+              frontImage="/amine-profile.jpg"
+              imageFit="cover"
+              cardColor="#0a1628"
+              finish="glossy"
+              orientation="portrait"
+              size={0.62}
+              anchor="center"
+              strapLength={0.45}
+              strapColor="#1e3fd8"
+              metal="silver"
+              gravity={1}
+              damping={0.55}
+              elasticity={0.45}
+              breeze={0.3}
+              interactive={true}
+              intro={true}
+              style={{ width: '100%', height: '100%' }}
             />
-
-            {/* Ambient Background Neon Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-cyan-400 opacity-15 blur-3xl group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
           </motion.div>
         </div>
       </div>

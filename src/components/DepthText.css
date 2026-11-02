@@ -1,0 +1,50 @@
+.depth-text {
+  perspective: var(--depth-text-perspective, 900px);
+  font-size: var(--depth-text-font-size, 4rem);
+  font-weight: var(--depth-text-font-weight, 900);
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1.1;
+  display: inline-block;
+  position: relative;
+}
+
+.depth-text__stage {
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: inline-block;
+  position: relative;
+}
+
+.depth-text__layer {
+  pointer-events: none;
+  white-space: nowrap;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.depth-text__layer--back {
+  filter: drop-shadow(var(--depth-text-shadow, none));
+}
+
+.depth-text__face {
+  color: var(--depth-text-face-color, #fff);
+  text-shadow: var(--depth-text-face-shadow, none);
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+
+.depth-text--outline .depth-text__layer {
+  -webkit-text-stroke: 1.5px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+
+.depth-text--outline .depth-text__face {
+  -webkit-text-stroke: 1.5px var(--depth-text-face-color, currentColor);
+  -webkit-text-fill-color: transparent;
+}

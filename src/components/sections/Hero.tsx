@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import ShimmerButton from "../ui/ShimmerButton";
 
 const AeroShards = dynamic(() => import("../AeroShards"), { ssr: false });
-const TextPressure = dynamic(() => import("../TextPressure"), { ssr: false });
+const DepthText = dynamic(() => import("../DepthText"), { ssr: false });
 
 export default function Hero() {
   return (
@@ -74,27 +74,26 @@ export default function Hero() {
 
         {/* Name */}
         <motion.div
-          className="relative w-full max-w-3xl h-24 sm:h-32 md:h-40 flex items-center justify-center my-1"
+          className="relative w-full max-w-4xl flex items-center justify-center my-2 select-none"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <TextPressure
+          <DepthText
             text="Amine Jhilel"
-            flex={true}
-            alpha={false}
-            stroke={false}
-            width={true}
-            weight={true}
-            italic={true}
-            idle="wave"
-            idleSpeed={1.1}
-            clickRipple={true}
-            textColor="#4a80d4"
-            pressureColor="#ffffff"
-            radius={0.6}
-            smoothing={0.55}
-            minFontSize={36}
+            layers={30}
+            depth={2.2}
+            faceColor="#ffffff"
+            depthColor="#1e3fd8"
+            fontSize="clamp(2.5rem, 6.5vw, 5.2rem)"
+            fontWeight={900}
+            tilt={8}
+            autoOrbit={true}
+            orbitSpeed={0.3}
+            pointerTracking={true}
+            hoverPush={0.25}
+            float={true}
+            shadow={true}
           />
         </motion.div>
 

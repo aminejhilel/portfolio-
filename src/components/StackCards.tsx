@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SkillOrb from "./SkillOrb";
 import {
@@ -34,7 +34,6 @@ import {
   SiC,
   SiCplusplus,
   SiNodedotjs,
-  SiTypescript,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -58,6 +57,7 @@ type CategoryKey =
 
 type CardData = {
   id: CategoryKey;
+  tag: string;
   title: string;
   subtitle: string;
   category: CategoryKey;
@@ -82,12 +82,13 @@ const CATEGORIES: { id: CategoryKey; label: string; icon: React.ReactNode }[] = 
 const CARDS: CardData[] = [
   {
     id: "langages",
+    tag: "SYS & ALGO // 01",
     title: "Langages de Programmation",
     subtitle: "Solides bases algorithmiques & orientées objet",
     category: "langages",
     accentColor: "#3b82f6",
-    iconBg: "rgba(59,130,246,0.12)",
-    iconBorder: "rgba(59,130,246,0.3)",
+    iconBg: "rgba(59,130,246,0.15)",
+    iconBorder: "rgba(59,130,246,0.35)",
     iconColor: "text-blue-400",
     icon: <Code2 className="w-6 h-6 text-blue-400" />,
     pills: [
@@ -101,12 +102,13 @@ const CARDS: CardData[] = [
   },
   {
     id: "frontend",
+    tag: "CLIENT & UI // 02",
     title: "Front-End & UI Web",
     subtitle: "Interfaces réactives, dynamiques & performantes",
     category: "frontend",
     accentColor: "#a855f7",
-    iconBg: "rgba(168,85,247,0.12)",
-    iconBorder: "rgba(168,85,247,0.3)",
+    iconBg: "rgba(168,85,247,0.15)",
+    iconBorder: "rgba(168,85,247,0.35)",
     iconColor: "text-purple-400",
     icon: <Layout className="w-6 h-6 text-purple-400" />,
     pills: [
@@ -119,12 +121,13 @@ const CARDS: CardData[] = [
   },
   {
     id: "backend",
+    tag: "SERVER & API // 03",
     title: "Back-End & APIs",
     subtitle: "Architecture serveur robuste & services REST",
     category: "backend",
     accentColor: "#d946ef",
-    iconBg: "rgba(217,70,239,0.12)",
-    iconBorder: "rgba(217,70,239,0.3)",
+    iconBg: "rgba(217,70,239,0.15)",
+    iconBorder: "rgba(217,70,239,0.35)",
     iconColor: "text-fuchsia-400",
     icon: <Server className="w-6 h-6 text-fuchsia-400" />,
     pills: [
@@ -136,12 +139,13 @@ const CARDS: CardData[] = [
   },
   {
     id: "databases",
+    tag: "DATA & SQL // 04",
     title: "Bases de Données",
     subtitle: "Modélisation relationnelle & optimisation SQL",
     category: "databases",
     accentColor: "#10b981",
-    iconBg: "rgba(16,185,129,0.12)",
-    iconBorder: "rgba(16,185,129,0.3)",
+    iconBg: "rgba(16,185,129,0.15)",
+    iconBorder: "rgba(16,185,129,0.35)",
     iconColor: "text-emerald-400",
     icon: <Database className="w-6 h-6 text-emerald-400" />,
     pills: [
@@ -152,12 +156,13 @@ const CARDS: CardData[] = [
   },
   {
     id: "design",
+    tag: "PRODUCT // 05",
     title: "UI & UX Design",
     subtitle: "Prototypage immersif & ergonomie utilisateur",
     category: "design",
     accentColor: "#ec4899",
-    iconBg: "rgba(236,72,153,0.12)",
-    iconBorder: "rgba(236,72,153,0.3)",
+    iconBg: "rgba(236,72,153,0.15)",
+    iconBorder: "rgba(236,72,153,0.35)",
     iconColor: "text-pink-400",
     icon: <Palette className="w-6 h-6 text-pink-400" />,
     pills: [
@@ -169,12 +174,13 @@ const CARDS: CardData[] = [
   },
   {
     id: "devops",
+    tag: "INFRA & TOOLS // 06",
     title: "DevOps & Outils",
     subtitle: "Versionning, conteneurisation & environnement de dev",
     category: "devops",
     accentColor: "#8b5cf6",
-    iconBg: "rgba(139,92,246,0.12)",
-    iconBorder: "rgba(139,92,246,0.3)",
+    iconBg: "rgba(139,92,246,0.15)",
+    iconBorder: "rgba(139,92,246,0.35)",
     iconColor: "text-violet-400",
     icon: <Wrench className="w-6 h-6 text-violet-400" />,
     pills: [
@@ -213,25 +219,53 @@ export default function StackCards() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
   const [viewMode, setViewMode] = useState<"orb" | "grid">("orb");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const filteredCards =
+    activeCategory === "all"
+      ? CARDS
+      : CARDS.filter((card) => card.category === activeCategory);
+
+  // Keep index within bounds when filtering
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [activeCategory]);
+
+  const scrollToCard = useCallback((index: number) => {
+    const target = Math.max(0, Math.min(index, filteredCards.length - 1));
+    setCurrentIndex(target);
+    if (containerRef.current) {
+      const children = containerRef.current.children;
+      if (children[target]) {
+        (children[target] as HTMLElement).scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  }, [filteredCards.length]);
 
   const scroll = (direction: "left" | "right") => {
-    if (containerRef.current) {
-      const scrollAmount = containerRef.current.clientWidth * 0.85;
-      containerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
+    const next = direction === "left" ? currentIndex - 1 : currentIndex + 1;
+    scrollToCard(next);
+  };
+
+  // Sync scroll on manual drag
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+    const container = containerRef.current;
+    const cardWidth = container.firstElementChild?.clientWidth || 360;
+    const index = Math.round(container.scrollLeft / cardWidth);
+    if (index !== currentIndex && index >= 0 && index < filteredCards.length) {
+      setCurrentIndex(index);
     }
   };
 
-  const filteredCards = CARDS.filter(
-    (card) => activeCategory === "all" || card.category === activeCategory
-  );
-
   return (
-    <div className="relative w-full max-w-7xl mx-auto space-y-8">
+    <div className="w-full flex flex-col gap-8">
       {/* ─── Control Bar: Categories & View Switcher ─── */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-slate-950/60 p-2.5 rounded-2xl border border-white/10 backdrop-blur-xl">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-slate-950/70 p-3 rounded-2xl border border-white/10 backdrop-blur-xl shadow-2xl">
         {/* Category Pills */}
         <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto py-1 px-1 hide-scrollbar">
           {CATEGORIES.map((cat) => {
@@ -240,14 +274,16 @@ export default function StackCards() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
-                  isActive ? "text-white" : "text-slate-400 hover:text-slate-200"
+                className={`relative px-3.5 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 shrink-0 ${
+                  isActive
+                    ? "text-white"
+                    : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
                 }`}
               >
                 {isActive && (
                   <motion.div
-                    layoutId="activeCategoryGlow"
-                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 shadow-md shadow-blue-500/20"
+                    layoutId="activeCategoryPill"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-md shadow-blue-600/30 border border-blue-400/30"
                     transition={{ type: "spring", stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -260,24 +296,24 @@ export default function StackCards() {
           })}
         </div>
 
-        {/* View Mode Toggle Button (Constellations vs Grille) */}
+        {/* View Mode Toggle Button */}
         <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-white/10 shrink-0">
           <button
             onClick={() => setViewMode("orb")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "orb"
-                ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30 border border-blue-400/20"
                 : "text-slate-400 hover:text-white"
             }`}
           >
             <Orbit className="w-3.5 h-3.5" />
-            <span>Constellations</span>
+            <span>Circular Gallery</span>
           </button>
           <button
             onClick={() => setViewMode("grid")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "grid"
-                ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30 border border-blue-400/20"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -290,109 +326,207 @@ export default function StackCards() {
       {/* ─── View Mode Content ─── */}
       <AnimatePresence mode="wait">
         {viewMode === "orb" ? (
-          /* ─── Orb Slider View ─── */
+          /* ─── Circular 3D Curved Carousel View ─── */
           <motion.div
             key="orb-view"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            className="relative group/slider"
+            className="relative group/slider select-none"
+            style={{ perspective: "1400px" }}
           >
             {/* Scroll Navigation Buttons */}
-            {filteredCards.length > 3 && (
+            {filteredCards.length > 1 && (
               <>
                 <button
                   onClick={() => scroll("left")}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 md:-translate-x-6 z-30 p-3 rounded-full bg-slate-900/90 border border-blue-500/30 text-white backdrop-blur-md opacity-80 hover:opacity-100 transition-all hover:bg-blue-600 hover:scale-110 shadow-lg shadow-blue-950/50"
-                  aria-label="Previous slide"
+                  disabled={currentIndex === 0}
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-5 z-40 p-3.5 rounded-full backdrop-blur-xl transition-all duration-300 shadow-xl ${
+                    currentIndex === 0
+                      ? "opacity-30 cursor-not-allowed bg-slate-900/60 border border-white/5 text-slate-500"
+                      : "opacity-90 hover:opacity-100 bg-slate-900/90 border border-blue-500/40 text-white hover:bg-blue-600 hover:scale-110 shadow-blue-950/60"
+                  }`}
+                  aria-label="Previous card"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
 
                 <button
                   onClick={() => scroll("right")}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 md:translate-x-6 z-30 p-3 rounded-full bg-slate-900/90 border border-blue-500/30 text-white backdrop-blur-md opacity-80 hover:opacity-100 transition-all hover:bg-blue-600 hover:scale-110 shadow-lg shadow-blue-950/50"
-                  aria-label="Next slide"
+                  disabled={currentIndex === filteredCards.length - 1}
+                  className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-5 z-40 p-3.5 rounded-full backdrop-blur-xl transition-all duration-300 shadow-xl ${
+                    currentIndex === filteredCards.length - 1
+                      ? "opacity-30 cursor-not-allowed bg-slate-900/60 border border-white/5 text-slate-500"
+                      : "opacity-90 hover:opacity-100 bg-slate-900/90 border border-blue-500/40 text-white hover:bg-blue-600 hover:scale-110 shadow-blue-950/60"
+                  }`}
+                  aria-label="Next card"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </>
             )}
 
-            {/* Slider Container */}
+            {/* Slider Container with 3D Circular Bend stage */}
             <div
               ref={containerRef}
-              className="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scrollbar py-3 px-1"
+              onScroll={handleScroll}
+              className="flex overflow-x-auto gap-6 sm:gap-8 snap-x snap-mandatory hide-scrollbar py-6 px-4 md:px-12 items-center"
+              style={{
+                transformStyle: "preserve-3d",
+                scrollBehavior: "smooth",
+              }}
             >
-              {filteredCards.map((card, index) => (
-                <motion.div
-                  key={card.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center p-6 rounded-3xl relative overflow-hidden group transition-all duration-500"
-                  style={{
-                    background:
-                      "linear-gradient(145deg, rgba(13, 19, 36, 0.75) 0%, rgba(6, 10, 20, 0.85) 100%)",
-                    border: `1px solid ${card.accentColor}33`,
-                    backdropFilter: "blur(20px)",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${card.accentColor}88`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 12px 40px -10px ${card.accentColor}40, 0 8px 32px rgba(0,0,0,0.5)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${card.accentColor}33`;
-                    (e.currentTarget as HTMLElement).style.boxShadow =
-                      "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)";
-                  }}
-                >
-                  {/* Glowing Top Radial Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{
-                      background: `radial-gradient(circle at 50% 0%, ${card.accentColor}18, transparent 70%)`,
+              {filteredCards.map((card, index) => {
+                const diff = index - currentIndex;
+                const isFocused = diff === 0;
+
+                // 3D Circular Bend transforms (like CircularGallery cylinder arc)
+                const rotateY = diff * -7; // Cylindrical arc rotation
+                const translateZ = isFocused ? 0 : -Math.min(Math.abs(diff) * 45, 120);
+                const translateY = isFocused ? 0 : -Math.min(Math.abs(diff) * 6, 18);
+                const scale = isFocused ? 1.02 : Math.max(0.92, 1 - Math.abs(diff) * 0.05);
+                const opacity = isFocused ? 1 : Math.max(0.65, 1 - Math.abs(diff) * 0.2);
+
+                return (
+                  <motion.div
+                    key={card.id}
+                    layout
+                    onClick={() => scrollToCard(index)}
+                    animate={{
+                      rotateY,
+                      z: translateZ,
+                      y: translateY,
+                      scale,
+                      opacity,
                     }}
-                  />
-
-                  {/* Card Header Title */}
-                  <div className="flex items-center justify-between gap-3 mb-2 relative z-10">
-                    <div>
-                      <h3 className="text-lg font-bold text-white tracking-wide">
-                        {card.title}
-                      </h3>
-                      <p className="text-xs text-slate-400 mt-0.5">{card.subtitle}</p>
-                    </div>
-
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 24,
+                    }}
+                    className={`flex-none w-[310px] sm:w-[350px] md:w-[380px] snap-center p-6 rounded-3xl relative overflow-hidden group cursor-pointer transition-all duration-500 ${
+                      isFocused ? "ring-1" : ""
+                    }`}
+                    style={{
+                      background:
+                        "linear-gradient(155deg, rgba(14, 23, 45, 0.88) 0%, rgba(7, 12, 24, 0.96) 100%)",
+                      border: isFocused
+                        ? `1.5px solid ${card.accentColor}90`
+                        : `1px solid ${card.accentColor}30`,
+                      backdropFilter: "blur(24px)",
+                      boxShadow: isFocused
+                        ? `0 20px 50px -15px ${card.accentColor}40, 0 0 35px -8px ${card.accentColor}30, inset 0 1px 1px 0 rgba(255,255,255,0.2)`
+                        : `0 12px 36px -12px rgba(0,0,0,0.6), inset 0 1px 0 0 rgba(255,255,255,0.06)`,
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    {/* Glowing Top Specular Rim */}
                     <div
-                      className="p-2 rounded-xl shrink-0"
+                      className="absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-500"
                       style={{
-                        background: card.iconBg,
-                        border: `1px solid ${card.iconBorder}`,
+                        background: `linear-gradient(90deg, transparent, ${card.accentColor}, transparent)`,
+                        opacity: isFocused ? 1 : 0.4,
                       }}
-                    >
-                      {card.icon}
-                    </div>
-                  </div>
+                    />
 
-                  {/* Skill Orb Graphics */}
-                  <div className="flex items-center justify-center w-full mt-2">
-                    <div className="scale-[0.85] sm:scale-95 md:scale-100 origin-center">
-                      <SkillOrb
-                        centralIcon={card.icon}
-                        skills={card.pills}
-                        iconColor={card.iconColor}
-                        iconBg={card.iconBg}
-                        iconBorder={card.iconBorder}
-                      />
+                    {/* Ambient Neon Radial Backlight */}
+                    <div
+                      className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full pointer-events-none transition-opacity duration-500"
+                      style={{
+                        background: `radial-gradient(circle, ${card.accentColor}25 0%, transparent 70%)`,
+                        opacity: isFocused ? 1 : 0.4,
+                      }}
+                    />
+
+                    {/* Card Header: Tag, Title & Icon */}
+                    <div className="flex items-start justify-between gap-3 mb-3 relative z-10">
+                      <div>
+                        <span
+                          className="inline-block text-[10px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded-full mb-1.5"
+                          style={{
+                            background: `${card.accentColor}18`,
+                            color: card.accentColor,
+                            border: `1px solid ${card.accentColor}33`,
+                          }}
+                        >
+                          {card.tag}
+                        </span>
+                        <h3 className="text-lg md:text-xl font-extrabold text-white tracking-tight">
+                          {card.title}
+                        </h3>
+                        <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                          {card.subtitle}
+                        </p>
+                      </div>
+
+                      <div
+                        className="p-2.5 rounded-2xl shrink-0 transition-all duration-300 group-hover:scale-110 shadow-lg"
+                        style={{
+                          background: card.iconBg,
+                          border: `1px solid ${card.iconBorder}`,
+                          boxShadow: `0 0 20px -4px ${card.accentColor}44`,
+                        }}
+                      >
+                        {card.icon}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+
+                    {/* Divider with Accent Glow */}
+                    <div
+                      className="w-full h-px my-2"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, ${card.accentColor}40, transparent)`,
+                      }}
+                    />
+
+                    {/* Skill Orb Graphics */}
+                    <div className="flex items-center justify-center w-full mt-2 relative z-10">
+                      <div className="scale-[0.88] sm:scale-95 md:scale-100 origin-center">
+                        <SkillOrb
+                          centralIcon={card.icon}
+                          skills={card.pills}
+                          iconColor={card.iconColor}
+                          iconBg={card.iconBg}
+                          iconBorder={card.iconBorder}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Bottom Navigation Track & Dots */}
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/10 backdrop-blur-md">
+                {filteredCards.map((card, i) => (
+                  <button
+                    key={card.id}
+                    onClick={() => scrollToCard(i)}
+                    className="relative transition-all duration-300 flex items-center justify-center"
+                    style={{
+                      width: currentIndex === i ? "24px" : "8px",
+                      height: "8px",
+                    }}
+                    aria-label={`Go to ${card.title}`}
+                  >
+                    <span
+                      className="w-full h-full rounded-full transition-all duration-300"
+                      style={{
+                        background:
+                          currentIndex === i
+                            ? card.accentColor
+                            : "rgba(255,255,255,0.2)",
+                        boxShadow:
+                          currentIndex === i
+                            ? `0 0 10px ${card.accentColor}`
+                            : "none",
+                      }}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </motion.div>
         ) : (
@@ -415,7 +549,7 @@ export default function StackCards() {
                 className="group relative overflow-hidden rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300"
                 style={{
                   background:
-                    "linear-gradient(145deg, rgba(13, 19, 36, 0.7) 0%, rgba(6, 10, 20, 0.85) 100%)",
+                    "linear-gradient(145deg, rgba(13, 19, 36, 0.75) 0%, rgba(6, 10, 20, 0.9) 100%)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
                 }}
@@ -461,4 +595,3 @@ export default function StackCards() {
     </div>
   );
 }
-

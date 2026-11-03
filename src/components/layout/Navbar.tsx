@@ -50,10 +50,10 @@ export default function Navbar() {
         isScrolled ? "py-3" : "bg-transparent py-6"
       }`}
       style={isScrolled ? {
-        background: "rgba(0,0,0,0.85)",
+        background: "rgba(0,0,0,0.88)",
         backdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(0,47,167,0.2)",
-        boxShadow: "0 4px 30px rgba(0,0,0,0.6), 0 0 40px rgba(0,47,167,0.08)",
+        borderBottom: "1px solid rgba(220,38,38,0.25)",
+        boxShadow: "0 4px 30px rgba(0,0,0,0.7), 0 0 35px rgba(220,38,38,0.12)",
       } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -62,10 +62,11 @@ export default function Navbar() {
           <span
             className="font-bold tracking-tight transition-colors"
             style={{ 
-              color: "#002FA7", 
+              color: "#dc2626", 
               fontFamily: "var(--font-dancing), cursive",
               fontSize: "2rem",
-              lineHeight: 1
+              lineHeight: 1,
+              textShadow: "0 0 20px rgba(220,38,38,0.4)"
             }}
           >
             Amine.J
@@ -83,10 +84,10 @@ export default function Navbar() {
               <span
                 className="transition-colors duration-300"
                 style={{
-                  color: activeSection === link.id ? "#002FA7" : "#6b7280",
+                  color: activeSection === link.id ? "#ef4444" : "#9ca3af",
                 }}
-                onMouseEnter={(e) => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "#002FA7"; }}
-                onMouseLeave={(e) => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "#6b7280"; }}
+                onMouseEnter={(e) => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "#ef4444"; }}
+                onMouseLeave={(e) => { if (activeSection !== link.id) (e.target as HTMLElement).style.color = "#9ca3af"; }}
               >
                 {link.name}
               </span>
@@ -94,7 +95,7 @@ export default function Navbar() {
                 <motion.span
                   layoutId="navbar-underline"
                   className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
-                  style={{ background: "linear-gradient(90deg, #002FA7, #1a4fc4)" }}
+                  style={{ background: "linear-gradient(90deg, #dc2626, #ef4444)" }}
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -108,8 +109,8 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:bg-white/5"
               style={{
-                color: "#adc0ff",
-                border: "1px solid rgba(173,192,255,0.2)",
+                color: "#fca5a5",
+                border: "1px solid rgba(239,68,68,0.3)",
               }}
             >
               Télécharger CV
@@ -118,11 +119,11 @@ export default function Navbar() {
               href="#contact"
               className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105"
               style={{
-                background: "rgba(0,47,167,0.12)",
-                border: "1px solid rgba(0,47,167,0.45)",
+                background: "rgba(220,38,38,0.15)",
+                border: "1px solid rgba(220,38,38,0.5)",
                 backdropFilter: "blur(12px)",
                 color: "#ffffff",
-                boxShadow: "0 0 15px rgba(0,47,167,0.25)",
+                boxShadow: "0 0 18px rgba(220,38,38,0.3)",
               }}
             >
               Hire Me
@@ -133,7 +134,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           className="md:hidden hover:text-white transition-colors"
-          style={{ color: "#002FA7" }}
+          style={{ color: "#ef4444" }}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -147,9 +148,9 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 right-0 shadow-2xl p-6 flex flex-col gap-4"
           style={{
-            background: "rgba(0,0,0,0.95)",
+            background: "rgba(0,0,0,0.96)",
             backdropFilter: "blur(20px)",
-            borderBottom: "1px solid rgba(0,47,167,0.18)",
+            borderBottom: "1px solid rgba(220,38,38,0.25)",
           }}
         >
           {navLinks.map((link) => (
@@ -159,8 +160,8 @@ export default function Navbar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="font-medium py-2 border-b transition-colors"
               style={{
-                borderColor: "rgba(0,47,167,0.12)",
-                color: activeSection === link.id ? "#002FA7" : "#6b7280",
+                borderColor: "rgba(220,38,38,0.15)",
+                color: activeSection === link.id ? "#ef4444" : "#9ca3af",
               }}
             >
               {link.name}
@@ -173,7 +174,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="font-medium py-2 transition-colors mt-2"
-            style={{ color: "#adc0ff" }}
+            style={{ color: "#fca5a5" }}
           >
             Télécharger CV
           </a>

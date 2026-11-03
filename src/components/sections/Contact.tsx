@@ -52,8 +52,8 @@ export default function Contact() {
     >
       {/* Ambient blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-5%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-blue-700/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[0%] left-[30%] w-[300px] h-[300px] bg-blue-600/8 rounded-full blur-[100px]" />
+        <div className="absolute top-[-5%] left-[50%] -translate-x-1/2 w-[600px] h-[400px] bg-red-950/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[0%] left-[30%] w-[300px] h-[300px] bg-rose-950/20 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
@@ -67,8 +67,7 @@ export default function Contact() {
         >
           <div className="flex items-center gap-3 mb-2">
             <span
-              className="text-sm font-bold tracking-widest"
-              style={{ color: "rgba(0,47,167,0.8)" }}
+              className="text-sm font-bold tracking-widest text-red-500"
             >
               05.
             </span>
@@ -78,7 +77,7 @@ export default function Contact() {
             className="h-px w-full"
             style={{
               background:
-                "linear-gradient(to right, rgba(0,47,167,0.5), transparent)",
+                "linear-gradient(to right, rgba(220,38,38,0.6), transparent)",
             }}
           />
           <p className="text-slate-400 mt-4 text-sm">
@@ -122,8 +121,8 @@ export default function Contact() {
                   textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(0,47,167,0.35)";
-                  e.currentTarget.style.background = "rgba(0,47,167,0.08)";
+                  e.currentTarget.style.borderColor = "rgba(220,38,38,0.35)";
+                  e.currentTarget.style.background = "rgba(220,38,38,0.08)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
@@ -133,11 +132,11 @@ export default function Contact() {
                 <div
                   className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                   style={{
-                    background: "rgba(0,47,167,0.12)",
-                    border: "1px solid rgba(0,47,167,0.28)",
+                    background: "rgba(220,38,38,0.15)",
+                    border: "1px solid rgba(220,38,38,0.35)",
                   }}
                 >
-                  <item.icon className="w-5 h-5 text-blue-400" />
+                  <item.icon className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <p
@@ -181,8 +180,8 @@ export default function Contact() {
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(0,47,167,0.4)";
-                e.currentTarget.style.background = "rgba(0,47,167,0.08)";
+                e.currentTarget.style.borderColor = "rgba(220,38,38,0.4)";
+                e.currentTarget.style.background = "rgba(220,38,38,0.08)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";

@@ -94,11 +94,11 @@ export default function SkillOrb({
         }
         .float-orb { animation: float-orb 4s ease-in-out infinite; }
 
-        @keyframes breathing-glow-blue {
-          0%, 100% { box-shadow: 0 0 14px 0px rgba(0,47,167,0.45); }
-          50%       { box-shadow: 0 0 28px 8px rgba(0,47,167,0.2); }
+        @keyframes breathing-glow-red {
+          0%, 100% { box-shadow: 0 0 14px 0px rgba(220,38,38,0.45); }
+          50%       { box-shadow: 0 0 28px 8px rgba(220,38,38,0.25); }
         }
-        .breathing-glow-blue { animation: breathing-glow-blue 3s ease-in-out infinite; }
+        .breathing-glow-red { animation: breathing-glow-red 3s ease-in-out infinite; }
       `}</style>
 
       <div className="relative" style={{ width: svgSize, height: svgSize }}>
@@ -111,7 +111,7 @@ export default function SkillOrb({
             const x2 = svgCenter + (radius - 38) * Math.cos(angle);
             const y2 = svgCenter + (radius - 38) * Math.sin(angle);
             const hovered = hoveredId === i;
-            const techColor = TECH_ICONS[skill.name]?.color ?? "#002FA7";
+            const techColor = TECH_ICONS[skill.name]?.color ?? "#dc2626";
             return (
               <line
                 key={i}
@@ -126,7 +126,7 @@ export default function SkillOrb({
 
         {/* Central Icon */}
         <div
-          className="absolute z-10 breathing-glow-blue rounded-2xl"
+          className="absolute z-10 breathing-glow-red rounded-2xl"
           style={{
             left: "50%", top: "50%",
             transform: "translate(-50%, -50%)",
@@ -147,7 +147,7 @@ export default function SkillOrb({
           const y = svgCenter + radius * Math.sin(angle);
           const hovered = hoveredId === i;
           const tech = TECH_ICONS[skill.name];
-          const techColor = tech?.color ?? "#002FA7";
+          const techColor = tech?.color ?? "#dc2626";
 
           return (
             <div

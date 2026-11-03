@@ -68,8 +68,8 @@ export default function Portfolio() {
     >
       {/* Ambient blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[10%] right-[-5%] w-[400px] h-[400px] bg-blue-800/10 rounded-full blur-[110px]" />
-        <div className="absolute bottom-[5%] left-[-5%] w-[350px] h-[350px] bg-blue-700/10 rounded-full blur-[100px]" />
+        <div className="absolute top-[10%] right-[-5%] w-[400px] h-[400px] bg-red-950/20 rounded-full blur-[110px]" />
+        <div className="absolute bottom-[5%] left-[-5%] w-[350px] h-[350px] bg-rose-950/20 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 overflow-hidden w-full">
@@ -83,8 +83,7 @@ export default function Portfolio() {
         >
           <div className="flex items-center gap-3 mb-2">
             <span
-              className="text-sm font-bold tracking-widest"
-              style={{ color: "rgba(0,47,167,0.8)" }}
+              className="text-sm font-bold tracking-widest text-red-500"
             >
               04.
             </span>
@@ -94,14 +93,14 @@ export default function Portfolio() {
             className="h-px w-full"
             style={{
               background:
-                "linear-gradient(to right, rgba(0,47,167,0.5), transparent)",
+                "linear-gradient(to right, rgba(220,38,38,0.6), transparent)",
             }}
           />
           <div className="flex justify-between items-center mt-4">
             <p className="text-slate-400 text-sm md:text-base">
               A showcase of my recent projects, featuring sleek designs and powerful functionality.
             </p>
-            <p className="text-blue-500 text-sm italic hidden md:block">
+            <p className="text-red-500 text-sm italic hidden md:block">
               &larr; Drag to explore &rarr;
             </p>
           </div>

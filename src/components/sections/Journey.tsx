@@ -58,7 +58,7 @@ const TIMELINE: TimelineItem[] = [
       { label: "Linux & Python", kind: "cert" },
     ],
     side: "left",
-    accentColor: "#3b82f6",
+    accentColor: "#dc2626",
     icon: GraduationCap,
   },
   {
@@ -81,7 +81,7 @@ const TIMELINE: TimelineItem[] = [
       { label: "Gestion Flotte", kind: "stage" },
     ],
     side: "right",
-    accentColor: "#6366f1",
+    accentColor: "#ef4444",
     icon: Briefcase,
   },
   {
@@ -103,7 +103,7 @@ const TIMELINE: TimelineItem[] = [
       { label: "FastBenCar", kind: "stage" },
     ],
     side: "left",
-    accentColor: "#06b6d4",
+    accentColor: "#f43f5e",
     icon: Building2,
   },
   {
@@ -120,7 +120,7 @@ const TIMELINE: TimelineItem[] = [
     ],
     badges: [{ label: "BAC", kind: "bac" }],
     side: "right",
-    accentColor: "#8b5cf6",
+    accentColor: "#e11d48",
     icon: Award,
   },
 ];
@@ -128,28 +128,28 @@ const TIMELINE: TimelineItem[] = [
 /* ─── Badge Colors & Styles ─── */
 const BADGE_STYLES: Record<BadgeKind, { bg: string; border: string; text: string; glow: string }> = {
   bac: {
-    bg: "rgba(139,92,246,0.12)",
-    border: "rgba(139,92,246,0.35)",
-    text: "#d8b4fe",
-    glow: "rgba(139,92,246,0.25)",
+    bg: "rgba(225,29,72,0.12)",
+    border: "rgba(225,29,72,0.35)",
+    text: "#fecdd3",
+    glow: "rgba(225,29,72,0.25)",
   },
   stage: {
-    bg: "rgba(99,102,241,0.14)",
-    border: "rgba(99,102,241,0.38)",
-    text: "#c7d2fe",
-    glow: "rgba(99,102,241,0.25)",
+    bg: "rgba(239,68,68,0.14)",
+    border: "rgba(239,68,68,0.38)",
+    text: "#fca5a5",
+    glow: "rgba(239,68,68,0.25)",
   },
   diploma: {
-    bg: "rgba(59,130,246,0.16)",
-    border: "rgba(59,130,246,0.45)",
-    text: "#bfdbfe",
-    glow: "rgba(59,130,246,0.3)",
+    bg: "rgba(220,38,38,0.16)",
+    border: "rgba(220,38,38,0.45)",
+    text: "#fecaca",
+    glow: "rgba(220,38,38,0.3)",
   },
   cert: {
-    bg: "rgba(6,182,212,0.12)",
-    border: "rgba(6,182,212,0.35)",
-    text: "#a5f3fc",
-    glow: "rgba(6,182,212,0.25)",
+    bg: "rgba(244,63,94,0.12)",
+    border: "rgba(244,63,94,0.35)",
+    text: "#fda4af",
+    glow: "rgba(244,63,94,0.25)",
   },
 };
 
@@ -160,21 +160,21 @@ const METRICS = [
     title: "Formation Spécialisée",
     sub: "Développement Web & Réseaux EMIG",
     icon: GraduationCap,
-    color: "#3b82f6",
+    color: "#ef4444",
   },
   {
     value: "2 Stages",
     title: "Expérience Terrain",
     sub: "FastBenCar Location De Voiture",
     icon: Briefcase,
-    color: "#6366f1",
+    color: "#f43f5e",
   },
   {
     value: "Accrédité",
     title: "Diplôme d'État",
     sub: "École Reconnue par l'État Marocain",
     icon: ShieldCheck,
-    color: "#06b6d4",
+    color: "#dc2626",
   },
 ];
 
@@ -228,7 +228,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
             className="group relative overflow-hidden rounded-2xl p-6 transition-all duration-300"
             style={{
               background:
-                "linear-gradient(145deg, rgba(13, 19, 36, 0.75) 0%, rgba(6, 10, 20, 0.85) 100%)",
+                "linear-gradient(145deg, rgba(20, 5, 7, 0.8) 0%, rgba(10, 3, 4, 0.9) 100%)",
               border: `1px solid ${isHovered ? `${item.accentColor}66` : "rgba(255, 255, 255, 0.08)"}`,
               backdropFilter: "blur(16px)",
               boxShadow: isHovered
@@ -281,7 +281,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
             </div>
 
             {/* Title & Subtitle */}
-            <h3 className="text-xl font-bold text-white mb-1 tracking-tight group-hover:text-blue-100 transition-colors">
+            <h3 className="text-xl font-bold text-white mb-1 tracking-tight group-hover:text-red-100 transition-colors">
               {item.title}
             </h3>
             <p className="text-sm font-medium text-slate-400 mb-3 flex items-center gap-1.5">
@@ -385,8 +385,8 @@ export default function Journey() {
       style={{ background: "#000000" }}
     >
       {/* Background Lighting Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full filter blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-600/10 rounded-full filter blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-950/20 rounded-full filter blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-rose-950/20 rounded-full filter blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full" ref={sectionRef}>
         {/* Header Title */}
@@ -397,7 +397,7 @@ export default function Journey() {
           className="mb-14"
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20">
+            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold tracking-widest text-red-400 bg-red-950/40 border border-red-500/30">
               03. PARCOURS
             </span>
           </div>
@@ -405,7 +405,7 @@ export default function Journey() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
             <div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-                Mon Parcours & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">Expériences</span>
+                Mon Parcours & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-300">Expériences</span>
               </h2>
               <p className="text-slate-400 mt-3 text-base max-w-2xl leading-relaxed">
                 De l&apos;obtention du Baccalauréat jusqu&apos;à la spécialisation en développement Full-Stack &amp; Réseaux — un chemin axé sur la pratique et les compétences techniques.
@@ -432,7 +432,7 @@ export default function Journey() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTabGlow"
-                        className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg shadow-blue-500/25"
+                        className="absolute inset-0 rounded-lg bg-gradient-to-r from-red-600 to-rose-700 shadow-lg shadow-red-500/25"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -446,7 +446,7 @@ export default function Journey() {
             </div>
           </div>
 
-          <div className="h-px w-full bg-gradient-to-r from-blue-500/50 via-indigo-500/20 to-transparent" />
+          <div className="h-px w-full bg-gradient-to-r from-red-500/50 via-rose-500/20 to-transparent" />
         </motion.div>
 
         {/* Metrics Banner */}
@@ -492,9 +492,9 @@ export default function Journey() {
         <div className="relative max-w-5xl mx-auto mt-6">
           {/* Glowing Center Line Beam */}
           <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5">
-            <div className="w-full h-full bg-gradient-to-b from-blue-600 via-indigo-500 to-violet-600 opacity-60 rounded-full" />
+            <div className="w-full h-full bg-gradient-to-b from-red-700 via-rose-600 to-red-800 opacity-60 rounded-full" />
             <motion.div
-              className="w-full h-full bg-gradient-to-b from-cyan-400 via-blue-400 to-indigo-400 origin-top shadow-[0_0_12px_#3b82f6]"
+              className="w-full h-full bg-gradient-to-b from-red-400 via-rose-500 to-red-600 origin-top shadow-[0_0_12px_#dc2626]"
               initial={{ scaleY: 0 }}
               animate={inView ? { scaleY: 1 } : { scaleY: 0 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}

@@ -13,9 +13,9 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden text-white px-6"
-      style={{ paddingTop: "80px" }}
+      style={{ paddingTop: "80px", background: "#000000" }}
     >
-      {/* AeroShards animated 3D background */}
+      {/* AeroShards animated 3D background in Blue */}
       <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.9 }}>
         <AeroShards
           shardColor="#1e3fd8"
@@ -26,7 +26,7 @@ export default function Hero() {
           count={1200}
           shardSize={1}
           speed={0.8}
-          glow={0.4}
+          glow={0.45}
           grain={0.05}
           mouseInteraction={true}
           mouseStrength={0.7}
@@ -43,7 +43,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0.75) 100%)",
+            "radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0.85) 100%)",
         }}
       />
 
@@ -63,12 +63,13 @@ export default function Hero() {
           <span
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
             style={{
-              background: "rgba(59,130,246,0.12)",
-              border: "1px solid rgba(59,130,246,0.35)",
-              color: "#93c5fd",
+              background: "rgba(220,38,38,0.12)",
+              border: "1px solid rgba(220,38,38,0.35)",
+              color: "#fca5a5",
+              boxShadow: "0 0 15px rgba(220,38,38,0.15)",
             }}
           >
-            <GraduationCap className="w-3.5 h-3.5 text-sky-400" />
+            <GraduationCap className="w-3.5 h-3.5 text-red-400" />
             Aujourd&apos;hui étudiant en Licence à SupMTI
           </span>
         </motion.div>
@@ -85,7 +86,7 @@ export default function Hero() {
             layers={30}
             depth={2.2}
             faceColor="#ffffff"
-            depthColor="#1e3fd8"
+            depthColor="#dc2626"
             fontSize="clamp(2.5rem, 6.5vw, 5.2rem)"
             fontWeight={900}
             tilt={8}
@@ -101,19 +102,19 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           className="text-sm sm:text-base md:text-lg tracking-[0.2em] uppercase font-light"
-          style={{ color: "#94a3b8" }}
+          style={{ color: "#9ca3af" }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
         >
           Full Stack Developer &amp;{" "}
-          <span className="text-sky-400 font-medium">UI &amp; UX Designer</span>
+          <span className="text-red-500 font-medium">UI &amp; UX Designer</span>
         </motion.p>
 
         {/* Divider */}
         <motion.div
           className="w-16 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(0,47,167,0.6), transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(220,38,38,0.7), transparent)" }}
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -127,7 +128,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.55 }}
         >
           <span className="text-white font-semibold">Développement web &amp; Design.</span>{" "}
-          Aujourd&apos;hui étudiant en <span className="text-sky-300 font-medium">Licence à SupMTI</span>, je conçois des solutions numériques modernes, performantes et adaptées à tous vos besoins.
+          Aujourd&apos;hui étudiant en <span className="text-red-400 font-medium">Licence à SupMTI</span>, je conçois des solutions numériques modernes, performantes et adaptées à tous vos besoins.
         </motion.p>
 
         {/* CTA */}
@@ -145,7 +146,7 @@ export default function Hero() {
             className="px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-white/5"
             style={{
               border: "1px solid rgba(255,255,255,0.1)",
-              color: "#94a3b8",
+              color: "#9ca3af",
             }}
           >
             En savoir plus →
@@ -160,10 +161,10 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <span className="text-xs tracking-widest uppercase" style={{ color: "#334155" }}>Scroll</span>
+        <span className="text-xs tracking-widest uppercase" style={{ color: "#4b5563" }}>Scroll</span>
         <motion.div
           className="w-px h-8"
-          style={{ background: "linear-gradient(to bottom, rgba(0,47,167,0.4), transparent)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(220,38,38,0.6), transparent)" }}
           animate={{ scaleY: [1, 0.5, 1] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         />

@@ -86,18 +86,18 @@ const CARDS: CardData[] = [
     title: "Langages de Programmation",
     subtitle: "Solides bases algorithmiques & orientées objet",
     category: "langages",
-    accentColor: "#3b82f6",
-    iconBg: "rgba(59,130,246,0.15)",
-    iconBorder: "rgba(59,130,246,0.35)",
-    iconColor: "text-blue-400",
-    icon: <Code2 className="w-6 h-6 text-blue-400" />,
+    accentColor: "#ef4444",
+    iconBg: "rgba(239,68,68,0.15)",
+    iconBorder: "rgba(239,68,68,0.35)",
+    iconColor: "text-red-400",
+    icon: <Code2 className="w-6 h-6 text-red-400" />,
     pills: [
-      { name: "C", colorClass: "text-blue-400", bgClass: "bg-blue-500/10", borderClass: "border-blue-500/30" },
-      { name: "C++", colorClass: "text-blue-500", bgClass: "bg-blue-600/10", borderClass: "border-blue-600/30" },
-      { name: "C#", colorClass: "text-purple-400", bgClass: "bg-purple-500/10", borderClass: "border-purple-500/30" },
-      { name: "PHP", colorClass: "text-indigo-400", bgClass: "bg-indigo-500/10", borderClass: "border-indigo-500/30" },
+      { name: "C", colorClass: "text-red-300", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
+      { name: "C++", colorClass: "text-rose-400", bgClass: "bg-rose-600/10", borderClass: "border-rose-600/30" },
+      { name: "C#", colorClass: "text-red-400", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
+      { name: "PHP", colorClass: "text-orange-400", bgClass: "bg-orange-500/10", borderClass: "border-orange-500/30" },
       { name: "Python", colorClass: "text-yellow-400", bgClass: "bg-yellow-500/10", borderClass: "border-yellow-500/30" },
-      { name: "JavaScript", colorClass: "text-yellow-300", bgClass: "bg-yellow-400/10", borderClass: "border-yellow-400/30" },
+      { name: "JavaScript", colorClass: "text-amber-300", bgClass: "bg-amber-400/10", borderClass: "border-amber-400/30" },
     ],
   },
   {
@@ -106,16 +106,16 @@ const CARDS: CardData[] = [
     title: "Front-End & UI Web",
     subtitle: "Interfaces réactives, dynamiques & performantes",
     category: "frontend",
-    accentColor: "#a855f7",
-    iconBg: "rgba(168,85,247,0.15)",
-    iconBorder: "rgba(168,85,247,0.35)",
-    iconColor: "text-purple-400",
-    icon: <Layout className="w-6 h-6 text-purple-400" />,
+    accentColor: "#f43f5e",
+    iconBg: "rgba(244,63,94,0.15)",
+    iconBorder: "rgba(244,63,94,0.35)",
+    iconColor: "text-rose-400",
+    icon: <Layout className="w-6 h-6 text-rose-400" />,
     pills: [
       { name: "HTML5", colorClass: "text-orange-400", bgClass: "bg-orange-500/10", borderClass: "border-orange-500/30" },
-      { name: "CSS3", colorClass: "text-blue-400", bgClass: "bg-blue-500/10", borderClass: "border-blue-500/30" },
-      { name: "Tailwind CSS", colorClass: "text-cyan-400", bgClass: "bg-cyan-500/10", borderClass: "border-cyan-500/30" },
-      { name: "React.js", colorClass: "text-cyan-300", bgClass: "bg-cyan-400/10", borderClass: "border-cyan-400/30" },
+      { name: "CSS3", colorClass: "text-rose-400", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
+      { name: "Tailwind CSS", colorClass: "text-red-300", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
+      { name: "React.js", colorClass: "text-rose-300", bgClass: "bg-rose-400/10", borderClass: "border-rose-400/30" },
       { name: "Next.js", colorClass: "text-slate-200", bgClass: "bg-slate-500/10", borderClass: "border-slate-500/30" },
     ],
   },
@@ -125,16 +125,16 @@ const CARDS: CardData[] = [
     title: "Back-End & APIs",
     subtitle: "Architecture serveur robuste & services REST",
     category: "backend",
-    accentColor: "#d946ef",
-    iconBg: "rgba(217,70,239,0.15)",
-    iconBorder: "rgba(217,70,239,0.35)",
-    iconColor: "text-fuchsia-400",
-    icon: <Server className="w-6 h-6 text-fuchsia-400" />,
+    accentColor: "#dc2626",
+    iconBg: "rgba(220,38,38,0.15)",
+    iconBorder: "rgba(220,38,38,0.35)",
+    iconColor: "text-red-400",
+    icon: <Server className="w-6 h-6 text-red-400" />,
     pills: [
-      { name: "Node.js", colorClass: "text-green-400", bgClass: "bg-green-500/10", borderClass: "border-green-500/30" },
+      { name: "Node.js", colorClass: "text-emerald-400", bgClass: "bg-emerald-500/10", borderClass: "border-emerald-500/30" },
       { name: "Laravel", colorClass: "text-red-400", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
-      { name: "Filament", colorClass: "text-yellow-400", bgClass: "bg-yellow-500/10", borderClass: "border-yellow-500/30" },
-      { name: "REST API", colorClass: "text-indigo-400", bgClass: "bg-indigo-500/10", borderClass: "border-indigo-500/30" },
+      { name: "Filament", colorClass: "text-amber-400", bgClass: "bg-amber-500/10", borderClass: "border-amber-500/30" },
+      { name: "REST API", colorClass: "text-rose-400", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
     ],
   },
   {
@@ -143,15 +143,15 @@ const CARDS: CardData[] = [
     title: "Bases de Données",
     subtitle: "Modélisation relationnelle & optimisation SQL",
     category: "databases",
-    accentColor: "#10b981",
-    iconBg: "rgba(16,185,129,0.15)",
-    iconBorder: "rgba(16,185,129,0.35)",
-    iconColor: "text-emerald-400",
-    icon: <Database className="w-6 h-6 text-emerald-400" />,
+    accentColor: "#e11d48",
+    iconBg: "rgba(225,29,72,0.15)",
+    iconBorder: "rgba(225,29,72,0.35)",
+    iconColor: "text-rose-400",
+    icon: <Database className="w-6 h-6 text-rose-400" />,
     pills: [
-      { name: "MySQL", colorClass: "text-blue-400", bgClass: "bg-blue-500/10", borderClass: "border-blue-500/30" },
+      { name: "MySQL", colorClass: "text-rose-300", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
       { name: "SQL Server", colorClass: "text-red-400", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
-      { name: "SQLite", colorClass: "text-cyan-400", bgClass: "bg-cyan-500/10", borderClass: "border-cyan-500/30" },
+      { name: "SQLite", colorClass: "text-orange-300", bgClass: "bg-orange-500/10", borderClass: "border-orange-500/30" },
     ],
   },
   {
@@ -160,16 +160,16 @@ const CARDS: CardData[] = [
     title: "UI & UX Design",
     subtitle: "Prototypage immersif & ergonomie utilisateur",
     category: "design",
-    accentColor: "#ec4899",
-    iconBg: "rgba(236,72,153,0.15)",
-    iconBorder: "rgba(236,72,153,0.35)",
-    iconColor: "text-pink-400",
-    icon: <Palette className="w-6 h-6 text-pink-400" />,
+    accentColor: "#b91c1c",
+    iconBg: "rgba(185,28,28,0.15)",
+    iconBorder: "rgba(185,28,28,0.35)",
+    iconColor: "text-red-400",
+    icon: <Palette className="w-6 h-6 text-red-400" />,
     pills: [
-      { name: "Figma", colorClass: "text-pink-400", bgClass: "bg-pink-500/10", borderClass: "border-pink-500/30" },
-      { name: "Prototypage", colorClass: "text-pink-400", bgClass: "bg-pink-500/10", borderClass: "border-pink-500/30" },
-      { name: "Wireframing", colorClass: "text-pink-400", bgClass: "bg-pink-500/10", borderClass: "border-pink-500/30" },
-      { name: "Recherche Utilisateur", colorClass: "text-pink-400", bgClass: "bg-pink-500/10", borderClass: "border-pink-500/30" },
+      { name: "Figma", colorClass: "text-rose-400", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
+      { name: "Prototypage", colorClass: "text-red-400", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
+      { name: "Wireframing", colorClass: "text-rose-300", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
+      { name: "Recherche Utilisateur", colorClass: "text-red-300", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
     ],
   },
   {
@@ -178,41 +178,41 @@ const CARDS: CardData[] = [
     title: "DevOps & Outils",
     subtitle: "Versionning, conteneurisation & environnement de dev",
     category: "devops",
-    accentColor: "#8b5cf6",
-    iconBg: "rgba(139,92,246,0.15)",
-    iconBorder: "rgba(139,92,246,0.35)",
-    iconColor: "text-violet-400",
-    icon: <Wrench className="w-6 h-6 text-violet-400" />,
+    accentColor: "#991b1b",
+    iconBg: "rgba(153,27,27,0.15)",
+    iconBorder: "rgba(153,27,27,0.35)",
+    iconColor: "text-red-400",
+    icon: <Wrench className="w-6 h-6 text-red-400" />,
     pills: [
-      { name: "Git/GitHub", colorClass: "text-slate-200", bgClass: "bg-slate-700/40", borderClass: "border-slate-600/50" },
-      { name: "Docker", colorClass: "text-cyan-400", bgClass: "bg-cyan-500/10", borderClass: "border-cyan-500/30" },
-      { name: "VS Code", colorClass: "text-blue-400", bgClass: "bg-blue-500/10", borderClass: "border-blue-500/30" },
+      { name: "Git/GitHub", colorClass: "text-slate-200", bgClass: "bg-slate-800/40", borderClass: "border-slate-700/50" },
+      { name: "Docker", colorClass: "text-rose-400", bgClass: "bg-rose-500/10", borderClass: "border-rose-500/30" },
+      { name: "VS Code", colorClass: "text-red-400", bgClass: "bg-red-500/10", borderClass: "border-red-500/30" },
     ],
   },
 ];
 
 /* Single Tech Card in Grid View */
 const ALL_TECH_ITEMS = [
-  { name: "React.js", category: "Front-End", color: "#61DAFB", icon: <SiReact /> },
+  { name: "React.js", category: "Front-End", color: "#f43f5e", icon: <SiReact /> },
   { name: "Next.js", category: "Front-End", color: "#FFFFFF", icon: <SiNextdotjs /> },
-  { name: "Tailwind CSS", category: "Front-End", color: "#06B6D4", icon: <SiTailwindcss /> },
-  { name: "Node.js", category: "Back-End", color: "#339933", icon: <SiNodedotjs /> },
-  { name: "Laravel", category: "Back-End", color: "#FF2D20", icon: <SiLaravel /> },
-  { name: "Python", category: "Langages", color: "#3776AB", icon: <SiPython /> },
-  { name: "JavaScript", category: "Langages", color: "#F7DF1E", icon: <SiJavascript /> },
-  { name: "PHP", category: "Langages", color: "#777BB4", icon: <SiPhp /> },
-  { name: "MySQL", category: "Bases de données", color: "#4479A1", icon: <SiMysql /> },
-  { name: "SQL Server", category: "Bases de données", color: "#CC292B", icon: <DiMsqlServer /> },
-  { name: "Figma", category: "UI/UX Design", color: "#F24E1E", icon: <SiFigma /> },
-  { name: "Docker", category: "DevOps", color: "#2496ED", icon: <SiDocker /> },
+  { name: "Tailwind CSS", category: "Front-End", color: "#ef4444", icon: <SiTailwindcss /> },
+  { name: "Node.js", category: "Back-End", color: "#22c55e", icon: <SiNodedotjs /> },
+  { name: "Laravel", category: "Back-End", color: "#dc2626", icon: <SiLaravel /> },
+  { name: "Python", category: "Langages", color: "#eab308", icon: <SiPython /> },
+  { name: "JavaScript", category: "Langages", color: "#f59e0b", icon: <SiJavascript /> },
+  { name: "PHP", category: "Langages", color: "#f97316", icon: <SiPhp /> },
+  { name: "MySQL", category: "Bases de données", color: "#e11d48", icon: <SiMysql /> },
+  { name: "SQL Server", category: "Bases de données", color: "#b91c1c", icon: <DiMsqlServer /> },
+  { name: "Figma", category: "UI/UX Design", color: "#f43f5e", icon: <SiFigma /> },
+  { name: "Docker", category: "DevOps", color: "#dc2626", icon: <SiDocker /> },
   { name: "Git/GitHub", category: "DevOps", color: "#FFFFFF", icon: <SiGithub /> },
-  { name: "VS Code", category: "DevOps", color: "#007ACC", icon: <VscVscode /> },
-  { name: "C++", category: "Langages", color: "#00599C", icon: <SiCplusplus /> },
-  { name: "C#", category: "Langages", color: "#239120", icon: <TbBrandCSharp /> },
-  { name: "HTML5", category: "Front-End", color: "#E44D26", icon: <SiHtml5 /> },
-  { name: "CSS3", category: "Front-End", color: "#1572B6", icon: <SiCss /> },
-  { name: "SQLite", category: "Bases de données", color: "#003B57", icon: <SiSqlite /> },
-  { name: "C", category: "Langages", color: "#A8B9CC", icon: <SiC /> },
+  { name: "VS Code", category: "DevOps", color: "#ef4444", icon: <VscVscode /> },
+  { name: "C++", category: "Langages", color: "#e11d48", icon: <SiCplusplus /> },
+  { name: "C#", category: "Langages", color: "#991b1b", icon: <TbBrandCSharp /> },
+  { name: "HTML5", category: "Front-End", color: "#f97316", icon: <SiHtml5 /> },
+  { name: "CSS3", category: "Front-End", color: "#ef4444", icon: <SiCss /> },
+  { name: "SQLite", category: "Bases de données", color: "#f43f5e", icon: <SiSqlite /> },
+  { name: "C", category: "Langages", color: "#e5e7eb", icon: <SiC /> },
 ];
 
 export default function StackCards() {
@@ -226,7 +226,6 @@ export default function StackCards() {
       ? CARDS
       : CARDS.filter((card) => card.category === activeCategory);
 
-  // Keep index within bounds when filtering
   useEffect(() => {
     setCurrentIndex(0);
   }, [activeCategory]);
@@ -251,7 +250,6 @@ export default function StackCards() {
     scrollToCard(next);
   };
 
-  // Sync scroll on manual drag
   const handleScroll = () => {
     if (!containerRef.current) return;
     const container = containerRef.current;
@@ -265,7 +263,7 @@ export default function StackCards() {
   return (
     <div className="w-full flex flex-col gap-8">
       {/* ─── Control Bar: Categories & View Switcher ─── */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-slate-950/70 p-3 rounded-2xl border border-white/10 backdrop-blur-xl shadow-2xl">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-black/80 p-3 rounded-2xl border border-red-950/40 backdrop-blur-xl shadow-2xl">
         {/* Category Pills */}
         <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto py-1 px-1 hide-scrollbar">
           {CATEGORIES.map((cat) => {
@@ -283,7 +281,7 @@ export default function StackCards() {
                 {isActive && (
                   <motion.div
                     layoutId="activeCategoryPill"
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-md shadow-blue-600/30 border border-blue-400/30"
+                    className="absolute inset-0 bg-gradient-to-r from-red-600 to-rose-700 rounded-xl shadow-md shadow-red-600/30 border border-red-400/30"
                     transition={{ type: "spring", stiffness: 380, damping: 28 }}
                   />
                 )}
@@ -297,12 +295,12 @@ export default function StackCards() {
         </div>
 
         {/* View Mode Toggle Button */}
-        <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-white/10 shrink-0">
+        <div className="flex items-center gap-1 bg-black/90 p-1 rounded-xl border border-white/10 shrink-0">
           <button
             onClick={() => setViewMode("orb")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "orb"
-                ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30 border border-blue-400/20"
+                ? "bg-gradient-to-r from-red-600 to-rose-700 text-white shadow-sm shadow-red-500/30 border border-red-400/20"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -313,7 +311,7 @@ export default function StackCards() {
             onClick={() => setViewMode("grid")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewMode === "grid"
-                ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30 border border-blue-400/20"
+                ? "bg-gradient-to-r from-red-600 to-rose-700 text-white shadow-sm shadow-red-500/30 border border-red-400/20"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -344,8 +342,8 @@ export default function StackCards() {
                   disabled={currentIndex === 0}
                   className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-5 z-40 p-3.5 rounded-full backdrop-blur-xl transition-all duration-300 shadow-xl ${
                     currentIndex === 0
-                      ? "opacity-30 cursor-not-allowed bg-slate-900/60 border border-white/5 text-slate-500"
-                      : "opacity-90 hover:opacity-100 bg-slate-900/90 border border-blue-500/40 text-white hover:bg-blue-600 hover:scale-110 shadow-blue-950/60"
+                      ? "opacity-30 cursor-not-allowed bg-black/60 border border-white/5 text-slate-500"
+                      : "opacity-90 hover:opacity-100 bg-black/90 border border-red-500/40 text-white hover:bg-red-600 hover:scale-110 shadow-red-950/60"
                   }`}
                   aria-label="Previous card"
                 >
@@ -357,8 +355,8 @@ export default function StackCards() {
                   disabled={currentIndex === filteredCards.length - 1}
                   className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-5 z-40 p-3.5 rounded-full backdrop-blur-xl transition-all duration-300 shadow-xl ${
                     currentIndex === filteredCards.length - 1
-                      ? "opacity-30 cursor-not-allowed bg-slate-900/60 border border-white/5 text-slate-500"
-                      : "opacity-90 hover:opacity-100 bg-slate-900/90 border border-blue-500/40 text-white hover:bg-blue-600 hover:scale-110 shadow-blue-950/60"
+                      ? "opacity-30 cursor-not-allowed bg-black/60 border border-white/5 text-slate-500"
+                      : "opacity-90 hover:opacity-100 bg-black/90 border border-red-500/40 text-white hover:bg-red-600 hover:scale-110 shadow-red-950/60"
                   }`}
                   aria-label="Next card"
                 >
@@ -381,8 +379,8 @@ export default function StackCards() {
                 const diff = index - currentIndex;
                 const isFocused = diff === 0;
 
-                // 3D Circular Bend transforms (like CircularGallery cylinder arc)
-                const rotateY = diff * -7; // Cylindrical arc rotation
+                // 3D Circular Bend transforms
+                const rotateY = diff * -7;
                 const translateZ = isFocused ? 0 : -Math.min(Math.abs(diff) * 45, 120);
                 const translateY = isFocused ? 0 : -Math.min(Math.abs(diff) * 6, 18);
                 const scale = isFocused ? 1.02 : Math.max(0.92, 1 - Math.abs(diff) * 0.05);
@@ -410,14 +408,14 @@ export default function StackCards() {
                     }`}
                     style={{
                       background:
-                        "linear-gradient(155deg, rgba(14, 23, 45, 0.88) 0%, rgba(7, 12, 24, 0.96) 100%)",
+                        "linear-gradient(155deg, rgba(20, 5, 7, 0.9) 0%, rgba(8, 3, 4, 0.97) 100%)",
                       border: isFocused
-                        ? `1.5px solid ${card.accentColor}90`
-                        : `1px solid ${card.accentColor}30`,
+                        ? `1.5px solid ${card.accentColor}99`
+                        : `1px solid ${card.accentColor}33`,
                       backdropFilter: "blur(24px)",
                       boxShadow: isFocused
-                        ? `0 20px 50px -15px ${card.accentColor}40, 0 0 35px -8px ${card.accentColor}30, inset 0 1px 1px 0 rgba(255,255,255,0.2)`
-                        : `0 12px 36px -12px rgba(0,0,0,0.6), inset 0 1px 0 0 rgba(255,255,255,0.06)`,
+                        ? `0 20px 50px -15px ${card.accentColor}44, 0 0 35px -8px ${card.accentColor}35, inset 0 1px 1px 0 rgba(255,255,255,0.2)`
+                        : `0 12px 36px -12px rgba(0,0,0,0.7), inset 0 1px 0 0 rgba(255,255,255,0.06)`,
                       transformStyle: "preserve-3d",
                     }}
                   >
@@ -499,7 +497,7 @@ export default function StackCards() {
 
             {/* Bottom Navigation Track & Dots */}
             <div className="flex items-center justify-center gap-3 mt-6">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/10 backdrop-blur-md">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/90 border border-red-950/50 backdrop-blur-md">
                 {filteredCards.map((card, i) => (
                   <button
                     key={card.id}
@@ -549,17 +547,17 @@ export default function StackCards() {
                 className="group relative overflow-hidden rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-300"
                 style={{
                   background:
-                    "linear-gradient(145deg, rgba(13, 19, 36, 0.75) 0%, rgba(6, 10, 20, 0.9) 100%)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+                    "linear-gradient(145deg, rgba(20, 6, 8, 0.8) 0%, rgba(8, 2, 3, 0.95) 100%)",
+                  border: "1px solid rgba(220,38,38,0.15)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = `${item.color}66`;
-                  (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px -6px ${item.color}33`;
+                  (e.currentTarget as HTMLElement).style.borderColor = `${item.color}88`;
+                  (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px -6px ${item.color}44`;
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.3)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(220,38,38,0.15)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.5)";
                 }}
               >
                 {/* Brand Color Ambient Glow */}

@@ -1462,3 +1462,4 @@ const Lanyard = ({
 };
 
 export default Lanyard;
+

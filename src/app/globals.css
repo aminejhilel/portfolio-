@@ -2,8 +2,8 @@
 
 :root {
   --background: #000000;
-  --foreground: #e8f0ff;
-  --accent: #002FA7;
+  --foreground: #fff1f2;
+  --accent: #dc2626;
 }
 
 html {
@@ -20,8 +20,8 @@ html {
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
-    --foreground: #e8f0ff;
-    --accent: #002FA7;
+    --foreground: #fff1f2;
+    --accent: #dc2626;
   }
 }
 
@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* ── Scrollbar Klein Blue theme ── */
+/* ── Scrollbar Red & Black theme ── */
 
 /* Width */
 ::-webkit-scrollbar {
@@ -47,22 +47,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Track */
 ::-webkit-scrollbar-track {
   background: #000000;
-  border-left: 1px solid rgba(0, 47, 167, 0.15);
+  border-left: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 /* Thumb */
 ::-webkit-scrollbar-thumb {
-  background: #002FA7;
+  background: #dc2626;
   border-radius: 999px;
   border: 2px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1a4fc4;
+  background: #ef4444;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #002FA7 #000000;
+  scrollbar-color: #dc2626 #000000;
 }
-

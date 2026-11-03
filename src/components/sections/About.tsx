@@ -7,13 +7,12 @@ import dynamic from "next/dynamic";
 const Lanyard = dynamic(() => import("@/components/Lanyard"), { ssr: false });
 
 export default function About() {
-
   return (
     <section id="about" className="py-24 text-white relative overflow-hidden" style={{ background: '#000000' }}>
-      {/* Decorative blobs */}
+      {/* Decorative blobs in Dark Red */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[20%] left-[-8%] w-[480px] h-[480px] bg-blue-800/10 rounded-full blur-[110px]" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[350px] h-[350px] bg-blue-700/10 rounded-full blur-[100px]" />
+        <div className="absolute top-[20%] left-[-8%] w-[480px] h-[480px] bg-red-950/20 rounded-full blur-[130px]" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[350px] h-[350px] bg-rose-950/20 rounded-full blur-[110px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -27,7 +26,7 @@ export default function About() {
           <div className="flex items-center gap-3 mb-2">
             <span
               className="text-sm font-bold tracking-widest"
-              style={{ color: "rgba(0,47,167,0.8)" }}
+              style={{ color: "#ef4444" }}
             >
               01.
             </span>
@@ -37,7 +36,7 @@ export default function About() {
             className="h-px w-full"
             style={{
               background:
-                "linear-gradient(to right, rgba(0,47,167,0.5), transparent)",
+                "linear-gradient(to right, rgba(220,38,38,0.6), transparent)",
             }}
           />
         </motion.div>
@@ -54,10 +53,10 @@ export default function About() {
               Développeur Full-Stack &amp; Designer UI/UX
             </h3>
             <p className="text-slate-400 text-lg leading-relaxed mb-6">
-              Je suis Amine Jhilel, passionné par la création d'expériences numériques immersives. Mon approche combine une expertise technique solide avec une sensibilité aiguë pour le design.
+              Je suis Amine Jhilel, passionné par la création d&apos;expériences numériques immersives. Mon approche combine une expertise technique solide avec une sensibilité aiguë pour le design.
             </p>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Que ce soit pour concevoir une architecture backend complexe ou pour peaufiner les micro-interactions d'une interface utilisateur, je m'efforce toujours de livrer des produits de haute qualité.
+              Que ce soit pour concevoir une architecture backend complexe ou pour peaufiner les micro-interactions d&apos;une interface utilisateur, je m&apos;efforce toujours de livrer des produits de haute qualité.
             </p>
 
             <div className="flex gap-4">
@@ -65,36 +64,37 @@ export default function About() {
               <div
                 className="flex items-center gap-3 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(0,47,167,0.07)',
-                  border: '1px solid rgba(0,47,167,0.22)',
+                  background: 'rgba(220,38,38,0.08)',
+                  border: '1px solid rgba(220,38,38,0.3)',
                   backdropFilter: 'blur(10px)',
                 }}
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(0,47,167,0.12)', border: '1px solid rgba(0,47,167,0.25)' }}
+                  style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.35)' }}
                 >
-                  <User className="w-5 h-5 text-blue-400" />
+                  <User className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500">Expérience</div>
                   <div className="font-semibold text-white">1+ An</div>
                 </div>
               </div>
+
               {/* Projets badge */}
               <div
                 className="flex items-center gap-3 px-4 py-3 rounded-2xl"
                 style={{
-                  background: 'rgba(0,47,167,0.07)',
-                  border: '1px solid rgba(0,47,167,0.22)',
+                  background: 'rgba(220,38,38,0.08)',
+                  border: '1px solid rgba(220,38,38,0.3)',
                   backdropFilter: 'blur(10px)',
                 }}
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(0,47,167,0.12)', border: '1px solid rgba(0,47,167,0.25)' }}
+                  style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.35)' }}
                 >
-                  <Zap className="w-5 h-5 text-blue-400" />
+                  <Zap className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
                   <div className="text-xs text-slate-500">Projets</div>
@@ -104,7 +104,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Profile Photo with Lanyard */}
+          {/* Profile Photo with Lanyard (Black & Red Edition) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -116,13 +116,13 @@ export default function About() {
             <Lanyard
               frontImage="/amine-profile.jpg"
               imageFit="cover"
-              cardColor="#0a1628"
+              cardColor="#140404"
               finish="glossy"
               orientation="portrait"
               size={0.62}
               anchor="center"
               strapLength={0.45}
-              strapColor="#1e3fd8"
+              strapColor="#dc2626"
               metal="silver"
               gravity={1}
               damping={0.55}
@@ -138,4 +138,3 @@ export default function About() {
     </section>
   );
 }
-

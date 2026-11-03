@@ -11,7 +11,7 @@ const Contact     = dynamic(() => import("@/components/sections/Contact"));
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-white selection:bg-blue-700/30" style={{ background: '#000000' }}>
+    <main className="min-h-screen text-white selection:bg-red-700/30" style={{ background: '#000000' }}>
       <Navbar />
       <Hero />
 
@@ -27,10 +27,10 @@ export default function Home() {
       <footer
         className="relative z-10 py-8 text-center text-sm"
         style={{
-          borderTop: '1px solid rgba(0,47,167,0.18)',
+          borderTop: '1px solid rgba(220,38,38,0.2)',
           background: 'rgba(0,0,0,0.9)',
           backdropFilter: 'blur(10px)',
-          color: '#4b6fa0',
+          color: '#9ca3af',
         }}
       >
         <p>

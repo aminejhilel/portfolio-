@@ -34,8 +34,8 @@ export default function ProjectCard({
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.boxShadow =
-          '0 0 40px rgba(0,47,167,0.25), 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)';
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,47,167,0.4)';
+          '0 0 40px rgba(220,38,38,0.25), 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)';
+        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(220,38,38,0.4)';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.boxShadow =
@@ -47,7 +47,7 @@ export default function ProjectCard({
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
         style={{
-          background: 'radial-gradient(circle at 0% 0%, rgba(0,47,167,0.15) 0%, transparent 60%)',
+          background: 'radial-gradient(circle at 0% 0%, rgba(220,38,38,0.15) 0%, transparent 60%)',
         }}
       />
 
@@ -72,9 +72,9 @@ export default function ProjectCard({
             key={tech}
             className="px-3 py-1 text-xs font-medium rounded-full"
             style={{
-              color: '#adc0ff',
-              background: 'rgba(0,47,167,0.15)',
-              border: '1px solid rgba(0,47,167,0.4)',
+              color: '#fca5a5',
+              background: 'rgba(220,38,38,0.15)',
+              border: '1px solid rgba(220,38,38,0.4)',
             }}
           >
             {tech}
@@ -92,7 +92,7 @@ export default function ProjectCard({
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-sm font-medium text-slate-400 hover:text-blue-400 transition-colors duration-200"
+            className="flex items-center text-sm font-medium text-slate-400 hover:text-red-400 transition-colors duration-200"
           >
             <Code className="w-4 h-4 mr-1.5" />
             Code
@@ -107,7 +107,7 @@ export default function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-sm font-medium transition-colors duration-200"
-            style={{ color: '#1a4fc4' }}
+            style={{ color: '#ef4444' }}
           >
             Live Preview
             <ExternalLink className="w-4 h-4 ml-1.5" />

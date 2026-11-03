@@ -31,7 +31,7 @@ export default function ShimmerButton({ href, children, className = "", isPrimar
       <motion.a
         href={href}
         className={`relative inline-flex items-center justify-center p-[1.5px] rounded-full overflow-hidden group ${
-          isPrimary ? "bg-blue-900/30" : "bg-blue-900/10"
+          isPrimary ? "bg-red-950/40" : "bg-red-950/20"
         }`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -39,16 +39,19 @@ export default function ShimmerButton({ href, children, className = "", isPrimar
         <div
           className="absolute inset-0"
           style={{
-            background: `conic-gradient(from var(--angle), transparent 25%, ${isPrimary ? '#1a4fc4' : '#002FA7'}, transparent 50%)`,
+            background: `conic-gradient(from var(--angle), transparent 25%, ${isPrimary ? '#ef4444' : '#dc2626'}, transparent 50%)`,
             animation: "shimmer-spin 2.5s linear infinite",
           }}
         />
         <span
           className={`relative z-10 inline-flex items-center justify-center w-full h-full px-8 py-3 rounded-full transition-colors duration-300 font-bold ${
             isPrimary 
-              ? "text-white bg-[#00175c] group-hover:bg-[#002288]" 
-              : "text-[#adc0ff] bg-black group-hover:bg-[#000a22]"
+              ? "text-white bg-[#5c0a0a] group-hover:bg-[#881010]" 
+              : "text-[#fca5a5] bg-black group-hover:bg-[#1f0505]"
           }`}
+          style={{
+            boxShadow: isPrimary ? "0 0 20px rgba(220,38,38,0.3)" : "none"
+          }}
         >
           {children}
         </span>

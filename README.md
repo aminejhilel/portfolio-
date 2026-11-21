@@ -15,7 +15,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 <img width="1472" height="766" alt="image" src="https://github.com/user-attachments/assets/ed4e38d9-7109-4988-8439-8e02642246c9" />
 ****************************************************************************************************************************
 
-
+---
 ## ✨ Fonctionnalités clés
 
 - **Design Immersif & Futuriste :** Une interface utilisateur ultra-moderne avec un style "glassmorphism", des arrière-plans dynamiques, et des effets lumineux (néons/glows).

@@ -17,6 +17,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 
 ---
 ## ✨ Fonctionnalités clés
+---
 
 - **Design Immersif & Futuriste :** Une interface utilisateur ultra-moderne avec un style "glassmorphism", des arrière-plans dynamiques, et des effets lumineux (néons/glows).
 - **Animations Avancées :** Utilisation intensive de `framer-motion` pour des transitions fluides et des interactions de défilement (scroll).

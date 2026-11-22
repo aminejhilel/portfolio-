@@ -5,7 +5,7 @@ Bienvenue sur le code source de mon portfolio personnel !
 Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack & Designer UI/UX**. Il est conçu avec un design moderne, immersif et hautement interactif, intégrant des animations avancées et des effets visuels 3D/WebGL.
 
 ************************
-## 📸 Aperçu
+##  Aperçu
 ************************
 
 <img width="1917" height="891" alt="image" src="https://github.com/user-attachments/assets/4ec7c423-ea28-492d-9321-91d615722b26" />
@@ -16,7 +16,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 ****************************************************************************************************************************
 
 ---
-## ✨ Fonctionnalités clés
+##  Fonctionnalités clés
 ---
 
 - **Design Immersif & Futuriste :** Une interface utilisateur ultra-moderne avec un style "glassmorphism", des arrière-plans dynamiques, et des effets lumineux (néons/glows).

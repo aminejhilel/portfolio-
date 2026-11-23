@@ -27,7 +27,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
   - **`TechText` & `DepthText` :** Des composants de textes interactifs et animés, rendus sur canvas HTML5.
 - **Performances optimales :** Les composants graphiques complexes sont chargés dynamiquement côté client (`next/dynamic` avec `ssr: false`) pour ne pas bloquer le chargement de la page initiale.
 
-## 🛠️ Stack Technique
+##  Stack Technique
 
 - **Framework :** [Next.js (App Router)](https://nextjs.org/)
 - **Langage :** [TypeScript](https://www.typescriptlang.org/)

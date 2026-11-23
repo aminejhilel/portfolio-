@@ -60,7 +60,7 @@ Pour lancer ce projet localement sur votre machine :
    Rendez-vous sur [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le portfolio en action.
 
 ***************
-## 🤝 Contact
+## Contact
 ***************
 
 Si vous souhaitez discuter, collaborer sur un projet, ou voir plus de mon travail, n'hésitez pas à me contacter ou à parcourir le site !

@@ -36,7 +36,7 @@ Ce projet met en valeur mes compétences en tant que **Développeur Full-Stack &
 - **Graphisme 3D / Shaders :** [Three.js](https://threejs.org/) & [VGPU](https://github.com/vercellabs/vgpu)
 - **Icônes :** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
 
-## 🚀 Installation & Démarrage local
+##  Installation & Démarrage local
 
 Pour lancer ce projet localement sur votre machine :
 
